@@ -12,11 +12,5 @@ namespace ElevApiHelper
             _Uri = uri;
             _ApiKey = ApiKey;
         }
-
-        public string Discagem(int ramal, int telefone)
-        {
-            var result = DiscagemOnline.Discagem(ramal, telefone, _Uri, _ApiKey);
-            return result;
-        }
     }
 }
