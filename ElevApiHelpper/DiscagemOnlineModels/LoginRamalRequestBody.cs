@@ -1,8 +1,9 @@
 ﻿namespace ElevApiHelper
 {
-    internal class LoginRamalBody
+    internal class LoginRamalRequestBody
     {
-        public string Nome { get; set; }
-        public int Codigo { get; set; }   
+        public string Ramal { get; set; }
+        public int Posicao { get; set; }
+        public string SenhaRamal { get; set; }
     }
 }
