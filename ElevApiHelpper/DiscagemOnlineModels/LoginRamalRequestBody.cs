@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper
+﻿namespace ElevApiHelper.DiscageOnlineModels
 {
     internal class LoginRamalRequestBody
     {

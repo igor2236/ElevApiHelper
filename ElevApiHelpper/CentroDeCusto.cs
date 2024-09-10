@@ -7,7 +7,6 @@ namespace ElevApiHelper
     { 
 
         //GET
-​        //centro-custo​/{id}
         //Lista o centro de custo pelo ID passado na url
         /// <summary>
         /// 
