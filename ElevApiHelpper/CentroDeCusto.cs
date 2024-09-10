@@ -16,7 +16,7 @@ namespace ElevApiHelper
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="apiKey"></param>
-        /// <param name="id"></param>
+        /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         internal static object GetCentroDeCustoById(Uri uri, string apiKey,int id)
@@ -32,7 +32,7 @@ namespace ElevApiHelper
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="apiKey"></param>
-        /// <param name="id"></param>
+        /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         internal static object PutCentroDeCusto(Uri uri, string apiKey,int id)
@@ -48,7 +48,7 @@ namespace ElevApiHelper
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="apiKey"></param>
-        /// <param name="id"></param>
+        /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         internal static object DeleteCentroDeCusto(Uri uri, string apiKey, int id)
@@ -64,18 +64,19 @@ namespace ElevApiHelper
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="apiKey"></param>
-        /// <param name="sort_by"></param>
-        /// <param name="order_by"></param>
-        /// <param name="nome"></param>
-        /// <param name="codigo"></param>
-        /// <param name="fk_ramal"></param>
-        /// <param name="page"></param>
-        /// <param name="rows"></param>
-        /// <param name="ativo"></param>
+        /// <param name="page">Pagina atual; Default value : 1</param>
+        /// <param name="rows">Quantidade de registros por pagina; Default value : 5</param>
+        /// <param name="sort_by">Ordenar por um campo especifico</param>
+        /// <param name="order_by">Tipo de ordem (asc ou desc)</param>
+        /// <param name="ativo">Filtro por ativo; Default value : true</param>
+        /// <param name="nome">Filtro por nome</param>
+        /// <param name="codigo">Filtro por codigo</param>
+        /// <param name="fk_ramal">Filtro por fk_ramal</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCusto(Uri uri, string apiKey, string sort_by, string order_by, string nome,  int codigo, int fk_ramal, int page = 1, int rows = 5, bool ativo = true)
+        internal static object GetCentroDeCusto(Uri uri, string apiKey, int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null,  int? codigo = null, int? fk_ramal = null)
         {
+            //TODO: Criar um enumerable para "order_by = asc e desc"
             throw new NotImplementedException();
         }
 
