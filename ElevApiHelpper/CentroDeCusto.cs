@@ -1,7 +1,5 @@
 ﻿using ElevApiHelper.CentroDeCustoModels;
 using System;
-using System.Collections.Concurrent;
-using System.Dynamic;
 
 namespace ElevApiHelper
 {
@@ -17,9 +15,10 @@ namespace ElevApiHelper
         /// <param name="uri"></param>
         /// <param name="apiKey"></param>
         /// <param name="id">ID do centro de custo</param>
+        /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCustoById(Uri uri, string apiKey,int id)
+        internal static object GetCentroDeCustoById(Uri uri, string apiKey,int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }
