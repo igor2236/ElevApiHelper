@@ -10,13 +10,13 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="ramal"></param>
-        /// <param name="telefone"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="ramal">Ramal que irá efetuar a ligação.</param>
+        /// <param name="telefone">Telefone que irá receber a ligação.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static string Discagem(int ramal, int telefone, Uri Uri, string ApiKey)
+        internal static string Discagem(Uri uri, string apiKey, int ramal, int telefone)
         {
             throw new NotImplementedException();
         }
@@ -27,12 +27,12 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
         /// <param name="loginRamalBody"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginRamal(LoginRamalBody loginRamalBody, Uri Uri, string ApiKey)
+        internal static object LoginRamal(Uri uri, string apiKey, LoginRamalRequestBody loginRamalBody)
         {
             /*{
                 "ramal": 1001,
@@ -48,11 +48,12 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="ramal">Ramal que irá logar na fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginFila(Uri Uri, string ApiKey)
+        internal static object LoginFila(Uri uri, string apiKey,int ramal)
         {
             throw new NotImplementedException();
         }
@@ -63,12 +64,12 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="ramal"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="ramal">Ramal que irá deslogar da fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LogoutFila(int ramal, Uri Uri, string ApiKey)
+        internal static object LogoutFila(Uri uri, string apiKey,int ramal)
         {
             throw new NotImplementedException();
         }
@@ -79,13 +80,13 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="ramal"></param>
-        /// <param name="codPausa"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="ramal">Ramal que irá ser pausado.</param>
+        /// <param name="codPausa">Código da pausa irá ser utilizada no ramal.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PausaRamal(int ramal, int codPausa, Uri Uri, string ApiKey)
+        internal static object PausaRamal(Uri uri, string apiKey, int ramal, int codPausa)
         {
             throw new NotImplementedException();
         }
@@ -96,17 +97,17 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="ramal"></param>
-        /// <param name="telefone1"></param>
-        /// <param name="telefone2"></param>
-        /// <param name="dmf"></param>
-        /// <param name="musicaEspera"></param>
-        /// <param name="dadosPainel"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="ramal">Ramal que irá efetuar as discagem.</param>
+        /// <param name="telefone1">Primeiro telefone que será discado.</param>
+        /// <param name="telefone2">Segundo telefone que será discado.</param>
+        /// <param name="dmf">Macro DTMF , usando o simbolo w para pausa de 500 milisegundos e numericos para o DTMF no contato do telefone1.</param>
+        /// <param name="musicaEspera">ID da musica de espera em substituicao da default.</param>
+        /// <param name="dadosPainel">Dados de painel do usuario.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object Discagem(int ramal, int telefone1, int telefone2,string dmf, string musicaEspera,string dadosPainel, Uri Uri, string ApiKey)
+        internal static object Discagem(Uri uri, string apiKey, int ramal, int telefone1, int telefone2,string dmf, string musicaEspera,string dadosPainel)
         {
             throw new NotImplementedException();
         }
@@ -117,22 +118,20 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="dataInicio"></param>
-        /// <param name="dataFim"></param>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="dataInicio">Format: 01/01/2024</param>
+        /// <param name="dataFim">Format: 01/01/2024</param>
         /// <param name="telefone1"></param>
-        /// <param name="telefone2"></param>
-        /// <param name="metodoIntegracao"></param>
-        /// <param name="usuario"></param>
+        /// <param name="telefone2">Caso ligação entre dois telefones</param>
+        /// <param name="metodoIntegracao">Default value : login-fila</param>
+        /// <param name="usuario">Colocar o login do usuário</param>
         /// <param name="ramal"></param>
-        /// <param name="Uri"></param>
-        /// <param name="ApiKey"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object Relatorio(DateTime dataInicio, DateTime dataFim, int telefone1, int telefone2, string metodoIntegracao, string usuario, string ramal, Uri Uri, string ApiKey)
+        internal static object Relatorio(Uri uri, string apiKey, DateTime dataInicio, DateTime dataFim, int telefone1, int telefone2, string metodoIntegracao, string usuario, string ramal)
         {
-            //datainicio: 01/01/2024
             throw new NotImplementedException();
         }
-
     }
 }
