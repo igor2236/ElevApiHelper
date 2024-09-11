@@ -2,7 +2,7 @@
 
 namespace ElevApiHelper.Models.FilaModels
 {
-    internal class FilaRequestBody : IFilaRequestBody
+    internal class FilaModel : IFilaModel
     {
         public string? Nome { get; set; }
         public int Toques { get; set; }

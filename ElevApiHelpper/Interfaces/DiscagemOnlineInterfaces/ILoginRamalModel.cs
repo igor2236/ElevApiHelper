@@ -1,6 +1,6 @@
 ﻿namespace ElevApiHelper.Interfaces.DiscagemOnlineInterfaces
 {
-    internal interface ILoginRamalRequestBody
+    internal interface ILoginRamalModel
     {
         string? Ramal { get; set; }
         int Posicao { get; set; }

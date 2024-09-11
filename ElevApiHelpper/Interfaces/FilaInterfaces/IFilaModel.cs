@@ -1,6 +1,6 @@
 ﻿namespace ElevApiHelper.Interfaces.FilaInterfaces
 {
-    internal interface IFilaRequestBody
+    internal interface IFilaModel
     {
         int AnuncioFrequencia { get; set; }
         bool Callback { get; set; }

@@ -2,7 +2,7 @@
 
 namespace ElevApiHelper.Models.CentroDeCustoModels
 {
-    public class CentroDeCustoRequestBody : ICentroDeCustoRequestBody
+    public class CentroDeCustoModel : ICentroDeCustoModel
     {
         public string? Nome { get; set; }
         public int Codigo { get; set; }

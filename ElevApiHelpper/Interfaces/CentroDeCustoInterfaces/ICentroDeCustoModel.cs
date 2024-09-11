@@ -1,6 +1,6 @@
 ﻿namespace ElevApiHelper.Interfaces.CentroDeCustoInterfaces
 {
-    public interface ICentroDeCustoRequestBody
+    public interface ICentroDeCustoModel
     {
         string? Nome { get; set; }
         int Codigo { get; set; }

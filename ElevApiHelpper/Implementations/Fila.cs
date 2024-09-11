@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Models.FilaModels;
+﻿using ElevApiHelper.Interfaces.FilaInterfaces;
 using ElevApiHelper.Util;
 using System;
 
@@ -32,7 +32,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutFila(IElevConfig elevConfig, int id, FilaRequestBody filaRequestBody)
+        internal static object PutFila(IElevConfig elevConfig, int id, IFilaModel fila)
         {
             throw new NotImplementedException();
         }
@@ -99,7 +99,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostFila(IElevConfig elevConfig, FilaRequestBody filaRequestBody)
+        internal static object PostFila(IElevConfig elevConfig, IFilaModel fila)
         {
             throw new NotImplementedException();
         }

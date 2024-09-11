@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Models.DiscagemOnlineModels;
+﻿using ElevApiHelper.Interfaces.DiscagemOnlineInterfaces;
 using ElevApiHelper.Util;
 using System;
 
@@ -32,7 +32,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="loginRamalBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginRamal(IElevConfig elevConfig, LoginRamalRequestBody loginRamalBody)
+        internal static object LoginRamal(IElevConfig elevConfig, ILoginRamalModel loginRamalBody)
         {
             /*{
                 "ramal": 1001,

@@ -1,5 +1,5 @@
 ﻿using ElevApiHelper.Enums;
-using ElevApiHelper.Models.CentroDeCustoModels;
+using ElevApiHelper.Interfaces.CentroDeCustoInterfaces;
 using ElevApiHelper.Util;
 using System;
 
@@ -18,7 +18,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCustoById(IElevConfig elevConfig, int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object GetCentroDeCustoById(IElevConfig elevConfig, int id, ICentroDeCustoModel centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }
@@ -85,7 +85,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostCentroDeCusto(IElevConfig elevConfig, CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object PostCentroDeCusto(IElevConfig elevConfig, ICentroDeCustoModel centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }

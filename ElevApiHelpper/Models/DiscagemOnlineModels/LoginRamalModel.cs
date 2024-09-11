@@ -2,7 +2,7 @@
 
 namespace ElevApiHelper.Models.DiscagemOnlineModels
 {
-    internal class LoginRamalRequestBody : ILoginRamalRequestBody
+    internal class LoginRamalModel : ILoginRamalModel
     {
         public string? Ramal { get; set; }
         public int Posicao { get; set; }
