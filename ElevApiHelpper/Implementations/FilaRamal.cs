@@ -4,8 +4,9 @@ using System;
 
 namespace ElevApiHelper.Implementations
 {
-    internal class FilaRamal
-    {
+    internal class FilaRamal : IFilaRamal 
+    { 
+
         //POST
         //fila-ramal
         //Cadastro de membros da fila
