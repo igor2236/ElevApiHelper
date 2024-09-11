@@ -16,8 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\FilaModelsInterfaces\Enums\" />
-    <Folder Include="Models\FilaModels\Enums\" />
+    <Folder Include="Interfaces\FilaInterfaces\Enums\" />
   </ItemGroup>
 
 </Project>

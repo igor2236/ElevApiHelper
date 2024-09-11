@@ -1,16 +1,13 @@
-﻿using System;
+﻿using ElevApiHelper.Util;
 
 namespace ElevApiHelper
 {
     public class ElevApiHelper
     {
-        public Uri _Uri;
-        public string _ApiKey;
-
-        public ElevApiHelper(Uri uri, string ApiKey)
+        private ElevConfig ElevConfig { get; set; }
+        public ElevApiHelper(ElevConfig elevConfig)
         {
-            _Uri = uri;
-            _ApiKey = ApiKey;
+            ElevConfig = elevConfig;
         }
     }
 }

@@ -8,9 +8,8 @@
         [SetUp]
         public void CentroDeCustoSetUp()
         {
-            Uri uri = new Uri("");
-            string apiKey = "";
-            elevApiHelper = new ElevApiHelper.ElevApiHelper(uri, apiKey);
+            var ElevConfig = new ElevApiHelper.Util.ElevConfig() { Uri = new Uri(""), ApiKey = ""};
+            elevApiHelper = new ElevApiHelper.ElevApiHelper(ElevConfig);
         }
     }
 }

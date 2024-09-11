@@ -1,24 +1,24 @@
-﻿using ElevApiHelper.Models.CentroDeCustoModels;
+﻿using ElevApiHelper.Enums;
+using ElevApiHelper.Models.CentroDeCustoModels;
+using ElevApiHelper.Util;
 using System;
 
-namespace ElevApiHelper
+namespace ElevApiHelper.Implementations
 {
     internal static class CentroDeCusto
     {
-
         //GET
         //centro-custo/{id}
         //Lista o centro de custo pelo ID passado na url
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id">ID do centro de custo</param>
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCustoById(Uri uri, string apiKey, int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object GetCentroDeCustoById(IElevConfig elevConfig, int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }
@@ -29,12 +29,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutCentroDeCusto(Uri uri, string apiKey, int id)
+        internal static object PutCentroDeCusto(IElevConfig elevConfig, int id)
         {
             throw new NotImplementedException();
         }
@@ -45,12 +44,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteCentroDeCusto(Uri uri, string apiKey, int id)
+        internal static object DeleteCentroDeCusto(IElevConfig elevConfig, int id)
         {
             throw new NotImplementedException();
         }
@@ -61,8 +59,7 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="page">Pagina atual; Default value : 1</param>
         /// <param name="rows">Quantidade de registros por pagina; Default value : 5</param>
         /// <param name="sort_by">Ordenar por um campo especifico</param>
@@ -73,9 +70,8 @@ namespace ElevApiHelper
         /// <param name="fk_ramal">Filtro por fk_ramal</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCusto(Uri uri, string apiKey, int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
+        internal static object GetCentroDeCusto(IElevConfig elevConfig, int? page = 1, int? rows = 5, string? sort_by = null, OrderBy? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
         {
-            //TODO: Criar um enumerable para "order_by = asc e desc"
             throw new NotImplementedException();
         }
 
@@ -85,12 +81,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostCentroDeCusto(Uri uri, string apiKey, CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object PostCentroDeCusto(IElevConfig elevConfig, CentroDeCustoRequestBody centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }

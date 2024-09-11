@@ -1,7 +1,8 @@
 ﻿using ElevApiHelper.Models.FilaModels;
+using ElevApiHelper.Util;
 using System;
 
-namespace ElevApiHelper
+namespace ElevApiHelper.Implementations
 {
     internal static class Fila
     {
@@ -11,12 +12,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetFila(Uri uri, string apiKey, int id)
+        internal static object GetFila(IElevConfig elevConfig, int id)
         {
             throw new NotImplementedException();
         }
@@ -27,13 +27,12 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id"></param>
         /// <param name="filaRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutFila(Uri uri, string apiKey, int id, FilaRequestBody filaRequestBody)
+        internal static object PutFila(IElevConfig elevConfig, int id, FilaRequestBody filaRequestBody)
         {
             throw new NotImplementedException();
         }
@@ -44,12 +43,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteFila(Uri uri, string apiKey, int id)
+        internal static object DeleteFila(IElevConfig elevConfig, int id)
         {
             throw new NotImplementedException();
         }
@@ -60,8 +58,7 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="page">Pagina atual; Default value : 1</param>
         /// <param name="rows">Quantidade de registros por pagina; Default value : 5</param>
         /// <param name="sort_by">Ordenar por um campo especifico</param>
@@ -75,7 +72,7 @@ namespace ElevApiHelper
         /// <param name="pesquisa">Filtro por pesquisa</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetFila(Uri uri, string apiKey,
+        internal static object GetFila(IElevConfig elevConfig,
             int? page = 1,
             int? rows = 5,
             string? sort_by = null,
@@ -98,12 +95,11 @@ namespace ElevApiHelper
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="apiKey"></param>
+        /// <param name="elevConfig"></param>
         /// <param name="filaRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostFila(Uri uri, string apiKey, FilaRequestBody filaRequestBody)
+        internal static object PostFila(IElevConfig elevConfig, FilaRequestBody filaRequestBody)
         {
             throw new NotImplementedException();
         }
