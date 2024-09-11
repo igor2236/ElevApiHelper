@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading;
 
 namespace ElevApiHelper
 {
@@ -79,8 +80,8 @@ namespace ElevApiHelper
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         internal static object GetFila(Uri uri, string apiKey,
-            int? page = 1, 
-            int rows = 5,
+            int? page = 1,
+            int? rows = 5,
             string? sort_by = null,
             string? order_by = "desc",
             bool ativo = true,
@@ -91,6 +92,15 @@ namespace ElevApiHelper
             int? fk_categoria = null,
             bool? pesquisa = null
             )
+        {
+            throw new NotImplementedException();
+        }
+
+        //POST
+        //fila
+        //Cadastro de filas
+
+        internal static object PostFila(Uri uri, string apiKey,FilaRequestBody filaRequestBody)
         {
             throw new NotImplementedException();
         }
