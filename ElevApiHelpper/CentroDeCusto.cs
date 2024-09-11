@@ -4,9 +4,10 @@ using System;
 namespace ElevApiHelper
 {
     internal static class CentroDeCusto
-    { 
+    {
 
         //GET
+        //centro-custo/{id}
         //Lista o centro de custo pelo ID passado na url
         /// <summary>
         /// 
@@ -17,7 +18,7 @@ namespace ElevApiHelper
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCustoById(Uri uri, string apiKey,int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object GetCentroDeCustoById(Uri uri, string apiKey, int id, CentroDeCustoRequestBody centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +34,7 @@ namespace ElevApiHelper
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutCentroDeCusto(Uri uri, string apiKey,int id)
+        internal static object PutCentroDeCusto(Uri uri, string apiKey, int id)
         {
             throw new NotImplementedException();
         }
@@ -72,7 +73,7 @@ namespace ElevApiHelper
         /// <param name="fk_ramal">Filtro por fk_ramal</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCusto(Uri uri, string apiKey, int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null,  int? codigo = null, int? fk_ramal = null)
+        internal static object GetCentroDeCusto(Uri uri, string apiKey, int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
         {
             //TODO: Criar um enumerable para "order_by = asc e desc"
             throw new NotImplementedException();
@@ -89,7 +90,7 @@ namespace ElevApiHelper
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostCentroDeCusto(Uri uri, string apiKey,CentroDeCustoRequestBody centroDeCustoRequestBody)
+        internal static object PostCentroDeCusto(Uri uri, string apiKey, CentroDeCustoRequestBody centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }

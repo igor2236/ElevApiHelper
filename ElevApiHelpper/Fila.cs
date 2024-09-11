@@ -1,9 +1,5 @@
 ﻿using ElevApiHelper.FilaModels;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
-using System.Threading;
 
 namespace ElevApiHelper
 {
@@ -39,7 +35,7 @@ namespace ElevApiHelper
         /// <exception cref="NotImplementedException"></exception>
         internal static object PutFila(Uri uri, string apiKey, int id, FilaRequestBody filaRequestBody)
         {
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
         }
 
         //DELETE
@@ -54,8 +50,8 @@ namespace ElevApiHelper
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         internal static object DeleteFila(Uri uri, string apiKey, int id)
-        { 
-            throw new NotImplementedException ();
+        {
+            throw new NotImplementedException();
         }
 
         //GET
@@ -99,8 +95,15 @@ namespace ElevApiHelper
         //POST
         //fila
         //Cadastro de filas
-
-        internal static object PostFila(Uri uri, string apiKey,FilaRequestBody filaRequestBody)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="filaRequestBody"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        internal static object PostFila(Uri uri, string apiKey, FilaRequestBody filaRequestBody)
         {
             throw new NotImplementedException();
         }

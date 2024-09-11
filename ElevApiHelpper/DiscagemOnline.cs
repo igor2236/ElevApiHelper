@@ -1,5 +1,5 @@
-﻿using System;
-using ElevApiHelper.DiscageOnlineModels;
+﻿using ElevApiHelper.DiscageOnlineModels;
+using System;
 
 namespace ElevApiHelper
 {
@@ -54,7 +54,7 @@ namespace ElevApiHelper
         /// <param name="ramal">Ramal que irá logar na fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginFila(Uri uri, string apiKey,int ramal)
+        internal static object LoginFila(Uri uri, string apiKey, int ramal)
         {
             throw new NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace ElevApiHelper
         /// <param name="ramal">Ramal que irá deslogar da fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LogoutFila(Uri uri, string apiKey,int ramal)
+        internal static object LogoutFila(Uri uri, string apiKey, int ramal)
         {
             throw new NotImplementedException();
         }
@@ -108,7 +108,7 @@ namespace ElevApiHelper
         /// <param name="dadosPainel">Dados de painel do usuario.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object Discagem(Uri uri, string apiKey, int ramal, int telefone1, int telefone2,string dmf, string musicaEspera,string dadosPainel)
+        internal static object Discagem(Uri uri, string apiKey, int ramal, int telefone1, int telefone2, string dmf, string musicaEspera, string dadosPainel)
         {
             throw new NotImplementedException();
         }

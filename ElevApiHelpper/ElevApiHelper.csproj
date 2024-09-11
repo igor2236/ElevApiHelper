@@ -5,4 +5,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="FilaModels\Enums\" />
+  </ItemGroup>
+
 </Project>
