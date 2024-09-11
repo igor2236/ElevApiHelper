@@ -2,7 +2,6 @@
 {
     internal class CentroDeCusto
     {
-        //TODO: Ver alguma forma de implementar DI
         private ElevApiHelper.ElevApiHelper elevApiHelper { get; set; }
 
         [SetUp]

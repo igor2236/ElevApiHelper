@@ -70,7 +70,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="fk_ramal">Filtro por fk_ramal</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetCentroDeCusto(IElevConfig elevConfig, int? page = 1, int? rows = 5, string? sort_by = null, OrderBy? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
+        internal static object GetCentroDeCusto(IElevConfig elevConfig, int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
         {
             throw new NotImplementedException();
         }
