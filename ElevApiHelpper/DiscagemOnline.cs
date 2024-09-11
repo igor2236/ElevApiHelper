@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.DiscageOnlineModels;
+﻿using ElevApiHelper.Models.DiscagemOnlineModels;
 using System;
 
 namespace ElevApiHelper

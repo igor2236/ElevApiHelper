@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.FilaModels;
+﻿using ElevApiHelper.Models.FilaModels;
 using System;
 
 namespace ElevApiHelper

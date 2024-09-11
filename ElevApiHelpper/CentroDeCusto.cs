@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.CentroDeCustoModels;
+﻿using ElevApiHelper.Models.CentroDeCustoModels;
 using System;
 
 namespace ElevApiHelper
