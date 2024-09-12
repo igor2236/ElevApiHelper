@@ -3,6 +3,6 @@
     internal interface IGrupoCapturaModel
     {
         string? Nome { get; set; }
-        int Codigo { get; set; }
+        int? Codigo { get; set; }
     }
 }

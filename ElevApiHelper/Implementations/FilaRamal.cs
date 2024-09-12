@@ -4,7 +4,7 @@ using System;
 
 namespace ElevApiHelper.Implementations
 {
-    internal class FilaRamal : IFilaRamal 
+    internal static class FilaRamal
     { 
 
         //POST
@@ -17,7 +17,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRamalModel"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostFilaRamal(IElevConfig elevConfig, IFilaRamalModel filaRamalModel)
+        internal static object PostFilaRamal(IElevConfig elevConfig, IFilaRamalModel filaRamalModel)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +32,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRamalDeleteDto"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object DeleteFilaRamal(IElevConfig elevConfig, IFilaRamalDeleteDto filaRamalDeleteDto)
+        internal static object DeleteFilaRamal(IElevConfig elevConfig, IFilaRamalDeleteDto filaRamalDeleteDto)
         {  
             throw new NotImplementedException(); 
         }
