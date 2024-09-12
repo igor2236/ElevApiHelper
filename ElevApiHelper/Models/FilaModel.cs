@@ -1,6 +1,6 @@
-﻿using ElevApiHelper.Interfaces.FilaInterfaces;
+﻿using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Models.FilaModels
+namespace ElevApiHelper.Models
 {
     internal class FilaModel : IFilaModel
     {

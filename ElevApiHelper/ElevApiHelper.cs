@@ -10,19 +10,6 @@ namespace ElevApiHelper
             ElevConfig = elevConfig;
         }
 
-        //TODO: Create ICentroDeCusto.cs
-        //TODO: Create IDiscagemOnline.cs
-        //TODO: Create IFila.cs
-        //TODO: Create IGrupoDeCaptura.cs
-        //TODO: Create IGrupo.cs
-        //TODO: Create ILogin.cs
-        //TODO: Create IPausa.cs
-        //TODO: Create IPosicao.cs
-        //TODO: Create IRamal.cs
-        //TODO: Create IDisacadorAutomatico.cs
-        //TODO: Create IGravacoes.cs
-
-        //TODO: Create GrupoDeCaptura.cs
         //TODO: Create Grupo.cs
         //TODO: Create Login.cs
         //TODO: Create Pausa.cs

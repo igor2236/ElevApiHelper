@@ -1,6 +1,6 @@
-﻿using ElevApiHelper.Interfaces.CentroDeCustoInterfaces;
+﻿using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Models.CentroDeCustoModels
+namespace ElevApiHelper.Models
 {
     public class CentroDeCustoModel : ICentroDeCustoModel
     {

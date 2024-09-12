@@ -1,9 +1,9 @@
-﻿using ElevApiHelper.Interfaces.FilaRamalInterfaces;
+﻿using ElevApiHelper.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElevApiHelper.Models.FilaRamalModels
+namespace ElevApiHelper.Dtos
 {
     internal class FilaRamalDeleteDto : IFilaRamalDeleteDto
     {

@@ -1,6 +1,6 @@
-﻿using ElevApiHelper.Interfaces.GrupoDeCapturaInterfaces;
+﻿using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Models.GrupoCapturaModels
+namespace ElevApiHelper.Models
 {
     internal class GrupoCapturaModel : IGrupoCapturaModel
     {

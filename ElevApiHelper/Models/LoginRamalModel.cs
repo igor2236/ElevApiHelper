@@ -1,6 +1,6 @@
-﻿using ElevApiHelper.Interfaces.DiscagemOnlineInterfaces;
+﻿using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Models.DiscagemOnlineModels
+namespace ElevApiHelper.Models
 {
     internal class LoginRamalModel : ILoginRamalModel
     {

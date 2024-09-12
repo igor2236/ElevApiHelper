@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ElevApiHelper.Interfaces.FilaRamalInterfaces;
+using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Models.FilaRamalModels
+namespace ElevApiHelper.Models
 {
     internal class FilaRamalModel : IFilaRamalModel
     {
