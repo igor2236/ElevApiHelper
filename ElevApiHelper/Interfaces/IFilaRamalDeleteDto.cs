@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElevApiHelper.Interfaces.FilaRamalInterfaces
+namespace ElevApiHelper.Interfaces
 {
     internal interface IFilaRamalDeleteDto
     {

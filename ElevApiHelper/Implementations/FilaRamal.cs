@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Interfaces.FilaRamalInterfaces;
+﻿using ElevApiHelper.Interfaces;
 using ElevApiHelper.Util;
 using System;
 

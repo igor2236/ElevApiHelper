@@ -15,9 +15,4 @@
     <WarningLevel>9999</WarningLevel>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Interfaces\FilaRamalInterfaces\IFilaRamal.cs" />
-    <Compile Remove="Interfaces\GrupoDeCapturaInterfaces\IGrupoDeCaptura.cs" />
-  </ItemGroup>
-
 </Project>

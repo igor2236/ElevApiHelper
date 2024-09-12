@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper.Interfaces.CentroDeCustoInterfaces
+﻿namespace ElevApiHelper.Interfaces
 {
     public interface ICentroDeCustoModel
     {

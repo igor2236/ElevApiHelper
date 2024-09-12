@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper.Interfaces.FilaInterfaces
+﻿namespace ElevApiHelper.Interfaces
 {
     internal interface IFilaModel
     {

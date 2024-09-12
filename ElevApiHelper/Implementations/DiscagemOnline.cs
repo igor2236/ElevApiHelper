@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Interfaces.DiscagemOnlineInterfaces;
+﻿using ElevApiHelper.Interfaces;
 using ElevApiHelper.Util;
 using System;
 

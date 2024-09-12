@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper.Interfaces.GrupoDeCapturaInterfaces
+﻿namespace ElevApiHelper.Interfaces
 {
     internal interface IGrupoCapturaModel
     {

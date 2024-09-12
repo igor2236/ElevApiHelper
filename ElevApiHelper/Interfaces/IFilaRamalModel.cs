@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper.Interfaces.FilaRamalInterfaces
+﻿namespace ElevApiHelper.Interfaces
 {
     internal interface IFilaRamalModel
     {

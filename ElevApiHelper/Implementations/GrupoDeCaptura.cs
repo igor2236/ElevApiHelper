@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Interfaces.GrupoDeCapturaInterfaces;
+﻿using ElevApiHelper.Interfaces;
 using ElevApiHelper.Models.GrupoCapturaModels;
 using ElevApiHelper.Util;
 using System;
@@ -41,9 +41,6 @@ namespace ElevApiHelper.Implementations
             throw new NotImplementedException(); 
         }
 
-
-
-
         //DELETE 
         //grupo-captura/{id}
         //Remove o grupo de captura do ID passado na url
@@ -58,7 +55,6 @@ namespace ElevApiHelper.Implementations
         {
             throw new NotImplementedException();
         }
-
 
         //GET
         //grupo-captura
@@ -102,7 +98,5 @@ namespace ElevApiHelper.Implementations
         {
             throw new NotImplementedException();
         }
-
-
     }
 }

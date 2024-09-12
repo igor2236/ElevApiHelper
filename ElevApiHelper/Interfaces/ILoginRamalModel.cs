@@ -1,4 +1,4 @@
-﻿namespace ElevApiHelper.Interfaces.DiscagemOnlineInterfaces
+﻿namespace ElevApiHelper.Interfaces
 {
     internal interface ILoginRamalModel
     {

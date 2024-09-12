@@ -1,5 +1,5 @@
 ﻿using ElevApiHelper.Enums;
-using ElevApiHelper.Interfaces.CentroDeCustoInterfaces;
+using ElevApiHelper.Interfaces;
 using ElevApiHelper.Util;
 using System;
 
