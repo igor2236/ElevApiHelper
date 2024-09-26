@@ -3,6 +3,7 @@ using ElevApiHelper.Models;
 using ElevApiHelper.Interfaces;
 using System;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 
 namespace ElevApiHelper.Services
 {

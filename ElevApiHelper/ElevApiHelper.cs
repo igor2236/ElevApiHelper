@@ -33,6 +33,5 @@ namespace ElevApiHelper
         {
             return new CentroDeCustoService(_config,_httpClient);
         }
-
     }
 }
