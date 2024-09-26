@@ -1,18 +1,15 @@
 ﻿using ElevApiHelper.Interfaces;
-using ElevApiHelper.Models.GrupoCapturaModels;
+using ElevApiHelper.Models;
 using ElevApiHelper.Util;
 using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
-    internal static class GrupoDeCaptura
+    internal class GrupoService : IGrupoService
     {
         //GET
-        //grupo-captura/{id}
-        //Lista o grupo de captura pelo ID passado na url
+        //grupo/{id}
+        //Lista o grupo do ID passado na url
         /// <summary>
         /// 
         /// </summary>
@@ -20,30 +17,30 @@ namespace ElevApiHelper.Implementations
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetGrupoCaptura(ElevConfig config, int id)
+        public object GetGrupo(ElevConfig config, int id)
         {
             throw new NotImplementedException();
         }
 
-        //Put
-        //grupo-captura/{id}
-        //Editar de grupo de captura
+        //PUT
+        //grupo/{id}
+        //Edição de grupos
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="id"></param>
-        /// <param name="grupoCaptura"></param>
+        /// <param name="grupo"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutGrupoCaptura(ElevConfig config, int id, IGrupoCapturaModel grupoCaptura)
-        { 
-            throw new NotImplementedException(); 
+        public object PutGrupo(ElevConfig config, int id, Grupo grupo)
+        {
+            throw new NotImplementedException();
         }
 
-        //DELETE 
-        //grupo-captura/{id}
-        //Remove o grupo de captura do ID passado na url
+        //DELETE
+        //grupo/{id}
+        //Desabilita o grupo do ID passado na url
         /// <summary>
         /// 
         /// </summary>
@@ -51,50 +48,56 @@ namespace ElevApiHelper.Implementations
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteGrupoCaptura(ElevConfig config, int id)
+        public object DeleteGrupo(ElevConfig config, int id)
         {
             throw new NotImplementedException();
         }
 
         //GET
-        //grupo-captura
+        //grupo
         //Pesquisa de grupos
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
-        /// <param name="page">Pagina atual; Default value : 1</param>
-        /// <param name="rows">Quantidade de registros por pagina; Default value : 5</param>
-        /// <param name="sort_by">Ordenar por um campo especifico</param>
-        /// <param name="order_by">Tipo de ordem (asc ou desc)</param>
-        /// <param name="ativo">Filtro por ativo;Default value : true</param>
-        /// <param name="nome">Filtro por nome</param>
-        /// <param name="codigo">Filtro por codigo</param>
+        /// <param name="page"></param>
+        /// <param name="rows"></param>
+        /// <param name="sort_by"></param>
+        /// <param name="order_by"></param>
+        /// <param name="ativo"></param>
+        /// <param name="nome"></param>
+        /// <param name="fk_classe"></param>
+        /// <param name="desvio"></param>
+        /// <param name="pesquisa"></param>
+        /// <param name="restricao_tempo"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetGrupoCaptura(ElevConfig config, 
+        public object GetGrupo(ElevConfig config,
             int? page = 1,
             int? rows = 5,
             string? sort_by = null,
             string? order_by = null,
             bool? ativo = null,
             string? nome = null,
-            int? codigo = null)
-        { 
+            int? fk_classe = null,
+            bool? desvio = null,
+            bool? pesquisa = null,
+            bool? restricao_tempo = null)
+        {
             throw new NotImplementedException();
         }
 
         //POST
-        //grupo-captura
-        //Cadastro de grupo de captura
+        //grupo
+        //Cadastro de grupos
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
-        /// <param name="grupoCaptura"></param>
+        /// <param name="grupo"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostGrupoCaptura(ElevConfig config,IGrupoCapturaModel grupoCaptura)
+        public object PostGrupo(ElevConfig config, Grupo grupo)
         {
             throw new NotImplementedException();
         }

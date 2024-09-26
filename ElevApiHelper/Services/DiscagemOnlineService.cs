@@ -1,23 +1,29 @@
-﻿using ElevApiHelper.Interfaces;
-using ElevApiHelper.Util;
+﻿using ElevApiHelper.Util;
+using ElevApiHelper.Models;
 using System;
+using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
-    internal static class DiscagemOnline
+    internal class DiscagemOnlineService : IDiscagemOnlineService
     {
+        private readonly ElevConfig _config;
+        public DiscagemOnlineService(ElevConfig config)
+        {
+            _config = config;
+        }
+
         //GET
         //discagem-online/discagem/{ramal}/{telefone}
         //Efetua uma ligação do ramal para o telefone passado pelos URL
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="ramal">Ramal que irá efetuar a ligação.</param>
         /// <param name="telefone">Telefone que irá receber a ligação.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static string Discagem(IElevConfig elevConfig, int ramal, int telefone)
+        public string Discagem(int ramal, int telefone)
         {
             throw new NotImplementedException();
         }
@@ -28,11 +34,10 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="loginRamalBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginRamal(IElevConfig elevConfig, ILoginRamalModel loginRamalBody)
+        public object LoginRamal(LoginRamal loginRamalBody)
         {
             /*{
                 "ramal": 1001,
@@ -48,11 +53,10 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="ramal">Ramal que irá logar na fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LoginFila(IElevConfig elevConfig, int ramal)
+        public object LoginFila(int ramal)
         {
             throw new NotImplementedException();
         }
@@ -63,11 +67,10 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="ramal">Ramal que irá deslogar da fila.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object LogoutFila(IElevConfig elevConfig, int ramal)
+        public object LogoutFila(int ramal)
         {
             throw new NotImplementedException();
         }
@@ -78,12 +81,11 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="ramal">Ramal que irá ser pausado.</param>
         /// <param name="codPausa">Código da pausa irá ser utilizada no ramal.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PausaRamal(IElevConfig elevConfig, int ramal, int codPausa)
+        public object PausaRamal(int ramal, int codPausa)
         {
             throw new NotImplementedException();
         }
@@ -94,7 +96,6 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="ramal">Ramal que irá efetuar as discagem.</param>
         /// <param name="telefone1">Primeiro telefone que será discado.</param>
         /// <param name="telefone2">Segundo telefone que será discado.</param>
@@ -103,7 +104,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="dadosPainel">Dados de painel do usuario.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object Discagem(IElevConfig elevConfig, int ramal, int telefone1, int telefone2, string dmf, string musicaEspera, string dadosPainel)
+        public object Discagem(int ramal, int telefone1, int telefone2, string dmf, string musicaEspera, string dadosPainel)
         {
             throw new NotImplementedException();
         }
@@ -114,7 +115,6 @@ namespace ElevApiHelper.Implementations
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="elevConfig"></param>
         /// <param name="dataInicio">Format: 01/01/2024</param>
         /// <param name="dataFim">Format: 01/01/2024</param>
         /// <param name="telefone1"></param>
@@ -124,7 +124,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="ramal"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object Relatorio(IElevConfig elevConfig, DateTime dataInicio, DateTime dataFim, int telefone1, int telefone2, string metodoIntegracao, string usuario, string ramal)
+        public object Relatorio(DateTime dataInicio, DateTime dataFim, int telefone1, int telefone2, string metodoIntegracao, string usuario, string ramal)
         {
             throw new NotImplementedException();
         }

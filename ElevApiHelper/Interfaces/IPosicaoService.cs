@@ -3,24 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Interfaces
 {
-    internal static class Posicao
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IPosicaoService
     {
-        //GET
-        //posicao/{posicao}
-        //Lista posição do ID passado na url
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="posicao"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object GetPosicao(ElevConfig config, int posicao)
-        {
-            throw new NotImplementedException();
-        }
+        object GetPosicao(ElevConfig config, int posicao);
 
         //GET
         //posicao
@@ -42,7 +38,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="registro"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetPosicao(ElevConfig config, 
+        object GetPosicao(ElevConfig config,
             int? page = 1,
             int? rows = 5,
             string? sort_by = null,
@@ -53,9 +49,6 @@ namespace ElevApiHelper.Implementations
             int? fk_tipo = null,
             string? ip = null,
             int? status = null,
-            string? registro = null)
-        {
-            throw new NotImplementedException();
-        }
+            string? registro = null);
     }
 }

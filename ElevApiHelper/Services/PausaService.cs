@@ -1,12 +1,13 @@
-﻿using ElevApiHelper.Util;
+﻿using ElevApiHelper.Interfaces;
+using ElevApiHelper.Util;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
-    internal static class Pausa
+    internal class PausaService : IPausaService
     {
         //GET
         //pausa/{id}
@@ -18,7 +19,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetPausa(ElevConfig config, int id)
+        public object GetPausa(ElevConfig config, int id)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +33,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="config"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetPausa(ElevConfig config)
+        public object GetPausa(ElevConfig config)
         { 
             throw new NotImplementedException(); 
         }

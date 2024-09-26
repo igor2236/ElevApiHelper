@@ -1,19 +1,17 @@
-﻿using System;
-
-namespace ElevApiHelper.Util
+﻿namespace ElevApiHelper.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public class ElevConfig
+    public class GrupoCaptura
     {
         /// <summary>
         /// 
         /// </summary>
-        public Uri? Uri { get; set; }
+        public string? Nome { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string? ApiKey { get; set; }
+        public int? Codigo { get; set; }
     }
 }

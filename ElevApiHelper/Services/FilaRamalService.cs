@@ -1,11 +1,13 @@
-﻿using ElevApiHelper.Interfaces;
+﻿using ElevApiHelper.Models;
+using ElevApiHelper.Dtos;
 using ElevApiHelper.Util;
 using System;
+using ElevApiHelper.Interfaces;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
-    internal static class FilaRamal
-    { 
+    internal class FilaRamalService : IFilaRamalService
+    {
 
         //POST
         //fila-ramal
@@ -17,7 +19,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRamalModel"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostFilaRamal(IElevConfig elevConfig, IFilaRamalModel filaRamalModel)
+        public object PostFilaRamal(ElevConfig elevConfig, FilaRamal filaRamalModel)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +34,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="filaRamalDeleteDto"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteFilaRamal(IElevConfig elevConfig, IFilaRamalDeleteDto filaRamalDeleteDto)
+        public object DeleteFilaRamal(ElevConfig elevConfig, FilaRamalDeleteDto filaRamalDeleteDto)
         {  
             throw new NotImplementedException(); 
         }

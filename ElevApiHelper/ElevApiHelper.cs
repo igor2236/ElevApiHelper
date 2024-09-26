@@ -1,22 +1,38 @@
-﻿using ElevApiHelper.Implementations;
+﻿using ElevApiHelper.Services;
 using ElevApiHelper.Util;
 using System.Diagnostics;
+using ElevApiHelper.Interfaces;
+using System.IO;
+using System.Net.Http;
+using System;
 
 namespace ElevApiHelper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ElevApiHelper
     {
-        private readonly ElevConfig ElevConfig;
-        public ElevApiHelper(ElevConfig elevConfig)
+        private readonly ElevConfig _config;
+        private readonly HttpClient _httpClient;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        public ElevApiHelper(ElevConfig config)
         {
-            ElevConfig = elevConfig;
+            _config = config;
+            _httpClient = new HttpClient() { BaseAddress = config.Uri};
         }
 
-        private void GetFila(int filaId)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ICentroDeCustoService CreateCentroDeCustoService()
         {
-            Fila.GetFila(ElevConfig,filaId);
+            return new CentroDeCustoService(_config,_httpClient);
         }
-
 
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ElevApiHelper.Models
@@ -7,19 +9,19 @@ namespace ElevApiHelper.Models
     /// <summary>
     /// 
     /// </summary>
-    public class LoginModel
+    public class FilaRamal
     {
         /// <summary>
         /// 
         /// </summary>
-        public string? Login { get; set; }
+        public int FkFila { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string? Senha { get; set; }
+        public int FkRamal { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string? TipoPosicao { get; set; }
+        public string? Acao { get; set; }
     }
 }

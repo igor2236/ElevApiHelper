@@ -1,13 +1,17 @@
-﻿using ElevApiHelper.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ElevApiHelper.Dtos
+﻿namespace ElevApiHelper.Dtos
 {
-    internal class FilaRamalDeleteDto : IFilaRamalDeleteDto
+    /// <summary>
+    /// 
+    /// </summary>
+    public class FilaRamalDeleteDto
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int FkFila { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public int FkRamal { get; set; }
     }
 }

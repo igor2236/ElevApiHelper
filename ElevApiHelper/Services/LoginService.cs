@@ -1,14 +1,12 @@
-﻿using ElevApiHelper.Models;
+﻿using ElevApiHelper.Interfaces;
+using ElevApiHelper.Models;
 using ElevApiHelper.Util;
 using System;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using System.Text;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
 
-    internal static class Login
+    internal class LoginService : ILoginService
     {
 
         //POST
@@ -21,7 +19,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="login"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostLogin(ElevConfig config, LoginModel login)
+        public object PostLogin(ElevConfig config, LoginModel login)
         {
             throw new NotImplementedException();
         }

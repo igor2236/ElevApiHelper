@@ -4,28 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Interfaces
 {
-    internal static class Grupo
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IGrupoService
     {
-        //GET
-        //grupo/{id}
-        //Lista o grupo do ID passado na url
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object GetGrupo(ElevConfig config, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        //PUT
-        //grupo/{id}
-        //Edição de grupos
+        object GetGrupo(ElevConfig config, int id);
         /// <summary>
         /// 
         /// </summary>
@@ -33,30 +25,14 @@ namespace ElevApiHelper.Implementations
         /// <param name="id"></param>
         /// <param name="grupo"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object PutGrupo(ElevConfig config, int id, GrupoModel grupo)
-        {
-            throw new NotImplementedException();
-        }
-
-        //DELETE
-        //grupo/{id}
-        //Desabilita o grupo do ID passado na url
+        object PutGrupo(ElevConfig config, int id, Grupo grupo);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteGrupo(ElevConfig config, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        //GET
-        //grupo
-        //Pesquisa de grupos
+        object DeleteGrupo(ElevConfig config, int id);
         /// <summary>
         /// 
         /// </summary>
@@ -72,8 +48,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="pesquisa"></param>
         /// <param name="restricao_tempo"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object GetGrupo(ElevConfig config,
+        object GetGrupo(ElevConfig config,
             int? page = 1,
             int? rows = 5,
             string? sort_by = null,
@@ -83,24 +58,14 @@ namespace ElevApiHelper.Implementations
             int? fk_classe = null,
             bool? desvio = null,
             bool? pesquisa = null,
-            bool? restricao_tempo = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        //POST
-        //grupo
-        //Cadastro de grupos
+            bool? restricao_tempo = null);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="config"></param>
         /// <param name="grupo"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        internal static object PostGrupo(ElevConfig config, GrupoModel grupo)
-        {
-            throw new NotImplementedException();
-        }
+        object PostGrupo(ElevConfig config, Grupo grupo);
+
     }
 }

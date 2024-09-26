@@ -1,26 +1,30 @@
-﻿using ElevApiHelper.Util;
+﻿using ElevApiHelper.Interfaces;
+using ElevApiHelper.Util;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 
-namespace ElevApiHelper.Implementations
+namespace ElevApiHelper.Services
 {
-    internal static class Ramal
+    internal class RamalService : IRamalService
     {
         //GET
         //ramal/{ramal}
         //Lista o ramal do numero passado na url
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="config"></param>
-       /// <param name="ramal">Numero do ramal</param>
-       /// <returns></returns>
-       /// <exception cref="NotImplementedException"></exception>
-        internal static object GetRamal(ElevConfig config, int ramal)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="ramal">Numero do ramal</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public object GetRamal(ElevConfig config, int ramal)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +39,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="ramal"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PutRamal(ElevConfig config, int ramal)
+        public object PutRamal(ElevConfig config, int ramal)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +55,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="inativar_ramal_fila"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object DeleteRamal(ElevConfig config, int ramal, bool? inativar_ramal_fila = null)
+        public object DeleteRamal(ElevConfig config, int ramal, bool? inativar_ramal_fila = null)
         {
             throw new NotImplementedException();
         }
@@ -80,7 +84,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="logado">Filtro por ramal logado</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object GetRamais(ElevConfig config, 
+        public object GetRamais(ElevConfig config, 
             int page = 1,
             int rows = 5,
             string? sort_by = null,
@@ -110,7 +114,7 @@ namespace ElevApiHelper.Implementations
         /// <param name="ramal"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        internal static object PostRamal(ElevConfig config, Models.Ramal ramal)
+        public object PostRamal(ElevConfig config, Models.Ramal ramal)
         { 
             throw new NotImplementedException();
         }
