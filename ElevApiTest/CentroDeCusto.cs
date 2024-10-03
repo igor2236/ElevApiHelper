@@ -2,15 +2,18 @@
 using ElevApiHelper.Services;
 using ElevApiHelper.Util;
 using Microsoft.Extensions.Configuration;
-
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Nodes;
+using System.Xml;
 
 namespace ElevApiTest
 {
     internal class CentroDeCusto
     {
         private ElevApiHelper.ElevApiHelper elevApiHelper { get; set; }
+        private ICentroDeCustoService centroDeCustoServce { get; set; }
 
         [SetUp]
         public void CentroDeCustoSetUp()
@@ -20,6 +23,7 @@ namespace ElevApiTest
 
             ElevConfig? config = GetElevConfig(configurationRoot);
             elevApiHelper = new ElevApiHelper.ElevApiHelper(config);
+            centroDeCustoServce = elevApiHelper.CreateCentroDeCustoService();
         }
 
         private ElevConfig GetElevConfig(IConfigurationRoot configurationRoot)
@@ -41,11 +45,19 @@ namespace ElevApiTest
             return config;
         }
 
-        [Test]
-        public void GetCentroDecusto()
+        [Test(Description = "Assert that result is not NULL")]
+        public async Task AssertTypeOfCentroDeCustoIsNotNull()
         {
-            ICentroDeCustoService centroDeCustoService = elevApiHelper.CreateCentroDeCustoService();
-            var result = centroDeCustoService.GetCentroDeCustoById(1);
+             var result = await centroDeCustoServce.GetCentroDeCustoById(1);
+             Assert.That(result, Is.Not.Null);
+        }
+
+        [Test(Description = "Assert Type of result of GetCentroDeCustoById")]
+        public async Task AssertTypeOfCentroDeCustoHaveCorrectType()
+        {
+            JsonObject result = await centroDeCustoServce.GetCentroDeCustoById(55555);
+            Debug.WriteLine(result);
+            Assert.That(result.GetType() == typeof(JsonObject));
         }
     }
 }

@@ -9,6 +9,8 @@ using System.IO;
 using System.Text.Json;
 using System.Net.Http.Json;
 using System.Text.Json.Nodes;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace ElevApiHelper.Services
 {
@@ -33,22 +35,31 @@ namespace ElevApiHelper.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<JsonObject?> GetCentroDeCustoById(int id)
         {
-            JsonObject? jsonResponse = new JsonObject();
+            JsonObject jsonResponse = new JsonObject();
             try
             {
-                using HttpResponseMessage response = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{Endpoints.CentroDeCusto}/{id}");
 
-                var streamResult = await response.Content.ReadAsStreamAsync();
+                using HttpResponseMessage response = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{Endpoints.CentroDeCusto}/{id}");
+                Stream streamResult = await response.Content.ReadAsStreamAsync();
                 StreamReader reader = new StreamReader(streamResult);
                 string json = reader.ReadToEnd();
-                var a  = JsonSerializer.Deserialize<JsonObject>(json);
+                jsonResponse = JsonSerializer.Deserialize<JsonObject>(json) != null ?
+                    JsonSerializer.Deserialize<JsonObject>(json)! :
+                    jsonResponse;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+
+                }
+
             }
             catch (Exception Ex)
             {
                 Debug.WriteLine(Ex.Message);
             }
-
+  
             return jsonResponse;
+
         }
 
         //PUT
