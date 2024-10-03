@@ -3,7 +3,12 @@ using ElevApiHelper.Models;
 using ElevApiHelper.Interfaces;
 using System;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
+using System.Net.Http.Json;
+using System.Text.Json.Nodes;
 
 namespace ElevApiHelper.Services
 {
@@ -26,9 +31,24 @@ namespace ElevApiHelper.Services
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object GetCentroDeCustoById(int id)
+        public async Task<JsonObject?> GetCentroDeCustoById(int id)
         {
-            return new object();
+            JsonObject? jsonResponse = new JsonObject();
+            try
+            {
+                using HttpResponseMessage response = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{Endpoints.CentroDeCusto}/{id}");
+
+                var streamResult = await response.Content.ReadAsStreamAsync();
+                StreamReader reader = new StreamReader(streamResult);
+                string json = reader.ReadToEnd();
+                var a  = JsonSerializer.Deserialize<JsonObject>(json);
+            }
+            catch (Exception Ex)
+            {
+                Debug.WriteLine(Ex.Message);
+            }
+
+            return jsonResponse;
         }
 
         //PUT
@@ -76,7 +96,7 @@ namespace ElevApiHelper.Services
         /// <param name="fk_ramal">Filtro por fk_ramal</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object GetCentroDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
+        public object GetCentrosDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
         {
             throw new NotImplementedException();
         }

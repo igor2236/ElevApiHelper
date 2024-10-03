@@ -1,10 +1,8 @@
 ﻿using ElevApiHelper.Services;
 using ElevApiHelper.Util;
-using System.Diagnostics;
 using ElevApiHelper.Interfaces;
-using System.IO;
 using System.Net.Http;
-using System;
+using System.Net.Http.Headers;
 
 namespace ElevApiHelper
 {
@@ -22,7 +20,13 @@ namespace ElevApiHelper
         public ElevApiHelper(ElevConfig config)
         {
             _config = config;
-            _httpClient = new HttpClient() { BaseAddress = config.Uri};
+
+            _httpClient = new HttpClient() 
+            {
+                BaseAddress = config.Uri,
+            };
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(config.ApiKey);
         }
 
         /// <summary>

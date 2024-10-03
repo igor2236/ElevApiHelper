@@ -42,9 +42,10 @@ namespace ElevApiTest
         }
 
         [Test]
-        public void GetCentroDecusto1()
+        public void GetCentroDecusto()
         {
             ICentroDeCustoService centroDeCustoService = elevApiHelper.CreateCentroDeCustoService();
+            var result = centroDeCustoService.GetCentroDeCustoById(1);
         }
     }
 }

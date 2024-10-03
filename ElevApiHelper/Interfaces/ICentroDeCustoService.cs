@@ -1,6 +1,9 @@
 ﻿using ElevApiHelper.Models;
 using ElevApiHelper.Util;
 using System;
+using System.IO;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 
 namespace ElevApiHelper.Interfaces
 {
@@ -14,7 +17,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        object GetCentroDeCustoById(int id);
+        Task<JsonObject?> GetCentroDeCustoById(int id);
         /// <summary>
         /// 
         /// </summary>
@@ -40,7 +43,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="codigo"></param>
         /// <param name="fk_ramal"></param>
         /// <returns></returns>
-        object GetCentroDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null);
+        object GetCentrosDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null);
         /// <summary>
         /// 
         /// </summary>
