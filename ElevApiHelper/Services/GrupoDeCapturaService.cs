@@ -33,7 +33,7 @@ namespace ElevApiHelper.Services
         /// <param name="grupoCaptura"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PutGrupoCaptura(ElevConfig config, int id, GrupoCaptura grupoCaptura)
+        public object PutGrupoCaptura(ElevConfig config, int id, GrupoCapturaRequest grupoCaptura)
         { 
             throw new NotImplementedException(); 
         }
@@ -91,7 +91,7 @@ namespace ElevApiHelper.Services
         /// <param name="grupoCaptura"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostGrupoCaptura(ElevConfig config,GrupoCaptura grupoCaptura)
+        public object PostGrupoCaptura(ElevConfig config,GrupoCapturaRequest grupoCaptura)
         {
             throw new NotImplementedException();
         }

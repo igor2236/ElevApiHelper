@@ -25,7 +25,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="id"></param>
         /// <param name="grupo"></param>
         /// <returns></returns>
-        object PutGrupo(ElevConfig config, int id, Grupo grupo);
+        object PutGrupo(ElevConfig config, int id, GrupoRequest grupo);
         /// <summary>
         /// 
         /// </summary>
@@ -65,7 +65,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="config"></param>
         /// <param name="grupo"></param>
         /// <returns></returns>
-        object PostGrupo(ElevConfig config, Grupo grupo);
+        object PostGrupo(ElevConfig config, GrupoRequest grupo);
 
     }
 }

@@ -13,7 +13,7 @@ namespace ElevApiHelper.Services
         /// <param name="sms"></param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public object SendSms(Sms sms)
+        public object SendSms(SmsRequest sms)
         {
             throw new System.NotImplementedException();
         }

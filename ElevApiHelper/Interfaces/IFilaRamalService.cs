@@ -18,7 +18,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="elevConfig"></param>
         /// <param name="filaRamalModel"></param>
         /// <returns></returns>
-        object PostFilaRamal(ElevConfig elevConfig, FilaRamal filaRamalModel);
+        object PostFilaRamal(ElevConfig elevConfig, FilaRamalRequest filaRamalModel);
 
         /// <summary>
         /// 

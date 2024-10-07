@@ -16,7 +16,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="sms"></param>
         /// <returns></returns>
-        object SendSms(Sms sms);
+        object SendSms(SmsRequest sms);
         /// <summary>
         /// 
         /// </summary>

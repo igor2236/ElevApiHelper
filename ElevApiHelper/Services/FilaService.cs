@@ -33,7 +33,7 @@ namespace ElevApiHelper.Services
         /// <param name="fila"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PutFila(ElevConfig config, int id, Fila fila)
+        public object PutFila(ElevConfig config, int id, FilaRequest fila)
         {
             throw new NotImplementedException();
         }
@@ -100,7 +100,7 @@ namespace ElevApiHelper.Services
         /// <param name="fila"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostFila(ElevConfig config, Fila fila)
+        public object PostFila(ElevConfig config, FilaRequest fila)
         {
             throw new NotImplementedException();
         }

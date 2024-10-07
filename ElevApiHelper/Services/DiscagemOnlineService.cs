@@ -37,7 +37,7 @@ namespace ElevApiHelper.Services
         /// <param name="loginRamalBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object LoginRamal(LoginRamal loginRamalBody)
+        public object LoginRamal(LoginRamalRequest loginRamalBody)
         {
             /*{
                 "ramal": 1001,

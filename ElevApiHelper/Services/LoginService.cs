@@ -19,7 +19,7 @@ namespace ElevApiHelper.Services
         /// <param name="login"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostLogin(ElevConfig config, LoginModel login)
+        public object PostLogin(ElevConfig config, LoginRequest login)
         {
             throw new NotImplementedException();
         }

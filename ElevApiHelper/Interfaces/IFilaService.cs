@@ -25,7 +25,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="id"></param>
         /// <param name="fila"></param>
         /// <returns></returns>
-        object PutFila(ElevConfig config, int id, Fila fila);
+        object PutFila(ElevConfig config, int id, FilaRequest fila);
         /// <summary>
         /// 
         /// </summary>
@@ -68,6 +68,6 @@ namespace ElevApiHelper.Interfaces
         /// <param name="config"></param>
         /// <param name="fila"></param>
         /// <returns></returns>
-        object PostFila(ElevConfig config, Fila fila);
+        object PostFila(ElevConfig config, FilaRequest fila);
     }
 }

@@ -19,7 +19,7 @@ namespace ElevApiHelper.Services
         /// <param name="filaRamalModel"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostFilaRamal(ElevConfig elevConfig, FilaRamal filaRamalModel)
+        public object PostFilaRamal(ElevConfig elevConfig, FilaRamalRequest filaRamalModel)
         {
             throw new NotImplementedException();
         }

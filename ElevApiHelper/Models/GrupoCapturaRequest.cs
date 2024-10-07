@@ -1,17 +1,21 @@
-﻿namespace ElevApiHelper.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ElevApiHelper.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public class CentroDeCusto
+    public class GrupoCaptura
     {
         /// <summary>
         /// 
         /// </summary>
+        [JsonPropertyName("nome")]
         public string? Nome { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int Codigo { get; set; }
+        [JsonPropertyName("codigo")]
+        public int? Codigo { get; set; }
     }
 }

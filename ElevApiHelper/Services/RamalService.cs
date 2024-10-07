@@ -114,7 +114,7 @@ namespace ElevApiHelper.Services
         /// <param name="ramal"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostRamal(ElevConfig config, Models.Ramal ramal)
+        public object PostRamal(ElevConfig config, Models.RamalRequest ramal)
         { 
             throw new NotImplementedException();
         }

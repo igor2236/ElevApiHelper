@@ -76,7 +76,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="config"></param>
         /// <param name="ramal"></param>
         /// <returns></returns>
-        public object PostRamal(ElevConfig config, Ramal ramal);
+        public object PostRamal(ElevConfig config, RamalRequest ramal);
 
     }
 }

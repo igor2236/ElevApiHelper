@@ -17,6 +17,6 @@ namespace ElevApiHelper.Interfaces
         /// <param name="config"></param>
         /// <param name="login"></param>
         /// <returns></returns>
-        public object PostLogin(ElevConfig config, LoginModel login);
+        public object PostLogin(ElevConfig config, LoginRequest login);
     }
 }

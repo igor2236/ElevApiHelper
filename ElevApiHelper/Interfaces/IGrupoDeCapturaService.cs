@@ -25,7 +25,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="id"></param>
         /// <param name="grupoCaptura"></param>
         /// <returns></returns>
-        object PutGrupoCaptura(ElevConfig config, int id, GrupoCaptura grupoCaptura);
+        object PutGrupoCaptura(ElevConfig config, int id, GrupoCapturaRequest grupoCaptura);
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +59,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="config"></param>
         /// <param name="grupoCaptura"></param>
         /// <returns></returns>
-        object PostGrupoCaptura(ElevConfig config, GrupoCaptura grupoCaptura);
+        object PostGrupoCaptura(ElevConfig config, GrupoCapturaRequest grupoCaptura);
         
     }
 }

@@ -22,7 +22,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="loginRamalBody"></param>
         /// <returns></returns>
-        object LoginRamal(LoginRamal loginRamalBody);
+        object LoginRamal(LoginRamalRequest loginRamalBody);
         /// <summary>
         /// 
         /// </summary>

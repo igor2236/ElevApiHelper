@@ -33,7 +33,7 @@ namespace ElevApiHelper.Services
         /// <param name="grupo"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PutGrupo(ElevConfig config, int id, Grupo grupo)
+        public object PutGrupo(ElevConfig config, int id, GrupoRequest grupo)
         {
             throw new NotImplementedException();
         }
@@ -97,7 +97,7 @@ namespace ElevApiHelper.Services
         /// <param name="grupo"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostGrupo(ElevConfig config, Grupo grupo)
+        public object PostGrupo(ElevConfig config, GrupoRequest grupo)
         {
             throw new NotImplementedException();
         }
