@@ -1,4 +1,5 @@
 ﻿using ElevApiHelper.Interfaces;
+using ElevApiHelper.Models.CentroDeCusto;
 using ElevApiHelper.Services;
 using ElevApiHelper.Util;
 using Microsoft.Extensions.Configuration;
@@ -41,7 +42,6 @@ namespace ElevApiTest
                 Uri = new Uri(uriString),
                 ApiKey = apiKeyStirng
             };
-
             return config;
         }
 
@@ -55,9 +55,8 @@ namespace ElevApiTest
         [Test(Description = "Assert Type of result of GetCentroDeCustoById")]
         public async Task AssertTypeOfCentroDeCustoHaveCorrectType()
         {
-            JsonObject result = await centroDeCustoServce.GetCentroDeCustoById(55555);
-            Debug.WriteLine(result);
-            Assert.That(result.GetType() == typeof(JsonObject));
+            var result = await centroDeCustoServce.GetCentroDeCustoById(1);
+            Assert.That(result!.GetType() == typeof(GetCentroDeCustoByIdResponse));
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ElevApiHelper.Models
     /// <summary>
     /// 
     /// </summary>
-    public class FilaRamal
+    public class FilaRamalRequest
     {
         /// <summary>
         /// 

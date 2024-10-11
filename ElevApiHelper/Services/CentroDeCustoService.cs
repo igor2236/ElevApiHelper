@@ -9,8 +9,10 @@ using System.IO;
 using System.Text.Json;
 using System.Net.Http.Json;
 using System.Text.Json.Nodes;
-using System.Reflection;
 using System.Runtime.CompilerServices;
+using ElevApiHelper.Models.CentroDeCusto;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace ElevApiHelper.Services
 {
@@ -33,31 +35,23 @@ namespace ElevApiHelper.Services
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<JsonObject?> GetCentroDeCustoById(int id)
+        public async Task<GetCentroDeCustoByIdResponse?> GetCentroDeCustoById(int id) 
         {
-            JsonObject jsonResponse = new JsonObject();
+            GetCentroDeCustoByIdResponse? response = null;
             try
             {
+                Dictionary<string,object> parameters = new Dictionary<string, object>(){{ "Id", id } };
+                response = await _httpClient.GetAsyncExtessinon<GetCentroDeCustoByIdResponse>(Endpoints.CentroDeCusto, parameters);
 
-                using HttpResponseMessage response = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{Endpoints.CentroDeCusto}/{id}");
-                Stream streamResult = await response.Content.ReadAsStreamAsync();
-                StreamReader reader = new StreamReader(streamResult);
-                string json = reader.ReadToEnd();
-                jsonResponse = JsonSerializer.Deserialize<JsonObject>(json) != null ?
-                    JsonSerializer.Deserialize<JsonObject>(json)! :
-                    jsonResponse;
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-
-                }
+                Wrapper<GetCentroDeCustoByIdResponse> wrapper = new Wrapper<GetCentroDeCustoByIdResponse>(response);
+                    return wrapper._obj;
             }
             catch (Exception Ex)
             {
                 Debug.WriteLine(Ex.Message);
             }
   
-            return jsonResponse;
+            return null;
 
         }
 
@@ -71,7 +65,7 @@ namespace ElevApiHelper.Services
         /// <param name="centroDeCusto"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PutCentroDeCusto(int id, CentroDeCusto centroDeCusto)
+        public object PutCentroDeCusto(int id, CentroDeCustoRequest centroDeCusto)
         {
             throw new NotImplementedException();
         }
@@ -120,7 +114,7 @@ namespace ElevApiHelper.Services
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostCentroDeCusto(CentroDeCusto centroDeCustoRequestBody)
+        public object PostCentroDeCusto(CentroDeCustoRequest centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }

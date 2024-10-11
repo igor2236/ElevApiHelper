@@ -1,17 +1,17 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ElevApiHelper.Models
+namespace ElevApiHelper.Models.CentroDeCusto
 {
     /// <summary>
     /// 
     /// </summary>
-    public class MailingRequest
+    public class GetCentroDeCustoByIdResponse
     {
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("campanha")]
-        public string? Campanha { get; set; }
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
 
         /// <summary>
         /// 
@@ -22,19 +22,19 @@ namespace ElevApiHelper.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("telefone")]
-        public string? Telefone { get; set; }
+        [JsonPropertyName("quant_ramais")]
+        public int? QuantRamais {  get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("identificador")]
-        public string? Identificador { get; set; }
+        [JsonPropertyName("codigo")]
+        public int? Codigo { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("inclusao_exclusao")]
-        public string? InclusaoExclusao { get; set; }
+        [JsonPropertyName("ativo")]
+        public string? Ativo { get; set; }
     }
 }

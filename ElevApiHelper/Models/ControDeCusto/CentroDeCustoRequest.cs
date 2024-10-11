@@ -1,11 +1,11 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ElevApiHelper.Models
+namespace ElevApiHelper.Models.CentroDeCusto
 {
     /// <summary>
     /// 
     /// </summary>
-    public class CentroDeCusto
+    public class CentroDeCustoRequest
     {
         /// <summary>
         /// 

@@ -13,6 +13,7 @@ namespace ElevApiHelper
     {
         private readonly ElevConfig _config;
         private readonly HttpClient _httpClient;
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,7 +26,6 @@ namespace ElevApiHelper
             {
                 BaseAddress = config.Uri,
             };
-
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(config.ApiKey);
         }
 

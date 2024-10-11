@@ -1,4 +1,4 @@
-﻿using ElevApiHelper.Models;
+﻿using ElevApiHelper.Models.CentroDeCusto;
 using ElevApiHelper.Util;
 using System;
 using System.IO;
@@ -17,14 +17,14 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<JsonObject?> GetCentroDeCustoById(int id);
+        Task<GetCentroDeCustoByIdResponse?> GetCentroDeCustoById(int id);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <param name="centroDeCusto"></param>
         /// <returns></returns>
-        object PutCentroDeCusto(int id, CentroDeCusto centroDeCusto);
+        object PutCentroDeCusto(int id, CentroDeCustoRequest centroDeCusto);
         /// <summary>
         /// 
         /// </summary>
@@ -49,6 +49,6 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
-        object PostCentroDeCusto(CentroDeCusto centroDeCustoRequestBody);
+        object PostCentroDeCusto(CentroDeCustoRequest centroDeCustoRequestBody);
     }
 }

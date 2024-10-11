@@ -6,7 +6,7 @@ namespace ElevApiHelper.Models
     /// <summary>
     /// 
     /// </summary>
-    public class Grupo
+    public class GrupoRequest
     {
         /// <summary>
         /// 

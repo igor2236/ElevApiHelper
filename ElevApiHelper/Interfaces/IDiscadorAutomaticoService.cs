@@ -24,7 +24,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="mailing"></param>
         /// <returns></returns>
-        object PostMailing(Mailing mailing);
+        object PostMailing(MailingRequest mailing);
         /// <summary>
         /// 
         /// </summary>

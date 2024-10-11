@@ -30,7 +30,7 @@ namespace ElevApiHelper.Services
         /// <param name="mailing"></param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public object PostMailing(Mailing mailing)
+        public object PostMailing(MailingRequest mailing)
         {
             throw new System.NotImplementedException();
         }

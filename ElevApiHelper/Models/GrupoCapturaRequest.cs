@@ -5,7 +5,7 @@ namespace ElevApiHelper.Models
     /// <summary>
     /// 
     /// </summary>
-    public class GrupoCaptura
+    public class GrupoCapturaRequest
     {
         /// <summary>
         /// 
