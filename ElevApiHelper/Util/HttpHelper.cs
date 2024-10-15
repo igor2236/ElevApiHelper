@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Data;
+using System.Data.Common;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -18,32 +21,84 @@ namespace ElevApiHelper.Util
     /// </summary>
     public static class HttpHelper
     {
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="httpClient"></param>
-       /// <param name="endpoint"></param>
-       /// <param name="parameters"></param>
-       /// <returns></returns>
-        public static async Task<T> GetAsyncExtessinon<T>(this HttpClient httpClient,string endpoint, Dictionary<string,object> parameters) where T : class
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="httpClient"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static async Task<T> GetAsyncExtessinonMultParameters<T>(this HttpClient httpClient, string endpoint, Dictionary<string, object> parameters) where T : class
         {
-           
-            using HttpResponseMessage response = await httpClient.GetAsync($"{httpClient.BaseAddress}{endpoint}/{parameters}");
-            string? json = await response.Content.ReadAsStringAsync();
+            try
+            {
+                List<string> parametersList = new List<string>();
+                foreach (var parameter in parameters)
+                {
+                    parametersList.Add($"{parameter.Value}");
+                }
 
-            if (response.IsSuccessStatusCode) 
-            {
-                T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
-                //T jsonResponse = JsonSerializer.Deserialize<T>(json) != null ?
-                //JsonSerializer.Deserialize<T>(json)! :
-                //jsonResponse;
-                return jsonResponse;
+                string parametersString = string.Join('&', parametersList);
+
+                Uri uri = new Uri($"{httpClient.BaseAddress}{endpoint}/{parametersString}");
+                using HttpResponseMessage response = await httpClient.GetAsync(uri);
+                string? json = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(json))
+                {
+                    T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
+                    //T jsonResponse = JsonSerializer.Deserialize<T>(json) != null ?
+                    //JsonSerializer.Deserialize<T>(json)! :
+                    //jsonResponse;
+                    return jsonResponse;
+                }
+                else
+                {
+                    T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
+                    return jsonResponse;
+                }
             }
-            else 
+            catch (Exception)
             {
-                 T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
-                return jsonResponse;
+                throw;
             }
+
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="httpClient"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public static async Task<Wrapper<T>> GetAsyncExtessinonSingleParameter<T>(this HttpClient httpClient, string endpoint,string parameter) where T : class
+        {
+            try
+            {
+                Uri uri = new Uri($"{httpClient.BaseAddress}{endpoint}/{parameter}");
+                using HttpResponseMessage response = await httpClient.GetAsync(uri);
+                Byte[]? json = await response.Content.ReadAsByteArrayAsync();
+                string jonsonString = Encoding.UTF8.GetString(json);
+
+                if (response.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(jonsonString))
+                {
+                    T jsonResponse = JsonSerializer.Deserialize<T>(jonsonString)!;
+                    return new Wrapper<T>(jsonResponse);
+                }
+                else
+                {
+                    string error = "Erro";
+                    return new Wrapper<T>(error);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
         }
 
     }

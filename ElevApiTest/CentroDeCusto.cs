@@ -55,8 +55,9 @@ namespace ElevApiTest
         [Test(Description = "Assert Type of result of GetCentroDeCustoById")]
         public async Task AssertTypeOfCentroDeCustoHaveCorrectType()
         {
+
             var result = await centroDeCustoServce.GetCentroDeCustoById(1);
-            Assert.That(result!.GetType() == typeof(GetCentroDeCustoByIdResponse));
+            Assert.That(result.success,Is.True);
         }
     }
 }

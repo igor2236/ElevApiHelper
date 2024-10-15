@@ -17,7 +17,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<GetCentroDeCustoByIdResponse?> GetCentroDeCustoById(int id);
+        Task<Wrapper<GetCentroDeCustoByIdResponse>> GetCentroDeCustoById(int id);
         /// <summary>
         /// 
         /// </summary>

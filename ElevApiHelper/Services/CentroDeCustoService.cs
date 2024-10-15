@@ -20,7 +20,7 @@ namespace ElevApiHelper.Services
     {
         private readonly ElevConfig _config;
         private readonly HttpClient _httpClient;
-        internal CentroDeCustoService(ElevConfig config,HttpClient client)
+        internal CentroDeCustoService(ElevConfig config, HttpClient client)
         {
             _config = config;
             _httpClient = client;
@@ -35,24 +35,19 @@ namespace ElevApiHelper.Services
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<GetCentroDeCustoByIdResponse?> GetCentroDeCustoById(int id) 
+        public async Task<Wrapper<GetCentroDeCustoByIdResponse>> GetCentroDeCustoById(int id)
         {
-            GetCentroDeCustoByIdResponse? response = null;
+             Wrapper <GetCentroDeCustoByIdResponse> response;
             try
             {
-                Dictionary<string,object> parameters = new Dictionary<string, object>(){{ "Id", id } };
-                response = await _httpClient.GetAsyncExtessinon<GetCentroDeCustoByIdResponse>(Endpoints.CentroDeCusto, parameters);
+                response = await _httpClient.GetAsyncExtessinonSingleParameter<GetCentroDeCustoByIdResponse>(Endpoints.CentroDeCusto, id.ToString());
 
-                Wrapper<GetCentroDeCustoByIdResponse> wrapper = new Wrapper<GetCentroDeCustoByIdResponse>(response);
-                    return wrapper._obj;
+                return response;
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
-                Debug.WriteLine(Ex.Message);
+                throw;
             }
-  
-            return null;
-
         }
 
         //PUT

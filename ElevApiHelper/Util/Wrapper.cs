@@ -11,17 +11,37 @@ namespace ElevApiHelper.Util
     /// <summary>
     /// 
     /// </summary>
-    public class Wrapper<T>
+    public class Wrapper<T> where T : class
     {
-        internal T _obj { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public T? obj { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string? error { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool success => string.IsNullOrEmpty(error);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="response"></param>
-    public Wrapper(T response)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="response"></param>
+        public Wrapper(T response)
         {
-            _obj = response;
+            obj = response;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="response"></param>
+        public Wrapper(string response)
+        {
+            error = response;
         }
     }
 }
