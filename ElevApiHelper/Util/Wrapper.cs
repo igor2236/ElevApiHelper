@@ -16,15 +16,15 @@ namespace ElevApiHelper.Util
         /// <summary>
         /// 
         /// </summary>
-        public T? obj { get; }
+        public T? Result { get; }
         /// <summary>
         /// 
         /// </summary>
-        public string? error { get; }
+        public ErrorResponse? Error { get; }
         /// <summary>
         /// 
         /// </summary>
-        public bool success => string.IsNullOrEmpty(error);
+        public bool success => Error == null;
 
         /// <summary>
         /// 
@@ -32,16 +32,16 @@ namespace ElevApiHelper.Util
         /// <param name="response"></param>
         public Wrapper(T response)
         {
-            obj = response;
+            Result = response;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="response"></param>
-        public Wrapper(string response)
+        public Wrapper(ErrorResponse response)
         {
-            error = response;
+            Error = response;
         }
     }
 }

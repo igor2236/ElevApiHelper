@@ -49,15 +49,29 @@ namespace ElevApiTest
         public async Task AssertTypeOfCentroDeCustoIsNotNull()
         {
              var result = await centroDeCustoServce.GetCentroDeCustoById(1);
-             Assert.That(result, Is.Not.Null);
+             Assert.That(result.Result, Is.Not.Null);
         }
 
-        [Test(Description = "Assert Type of result of GetCentroDeCustoById")]
-        public async Task AssertTypeOfCentroDeCustoHaveCorrectType()
+        [Test(Description = "Assert that result is successful")]
+        public async Task AssertTypeOfCentroDeCustoIsSuccess()
         {
-
             var result = await centroDeCustoServce.GetCentroDeCustoById(1);
             Assert.That(result.success,Is.True);
+        }
+
+        [Test(Description = "Assert that result is not successful")]
+        public async Task AssertTypeOfCentroDeCustoIsNotSuccess()
+        {
+            var result = await centroDeCustoServce.GetCentroDeCustoById(2147483647);
+            Assert.That(result.success, Is.False);
+        }
+
+
+        [Test(Description = "Assert that result has error description")]
+        public async Task AssertTypeOfCentroDeCustoHasErrorDescription()
+        {
+            var result = await centroDeCustoServce.GetCentroDeCustoById(2147483647);
+            Assert.That(result.Error.Message, Is.EqualTo("asdasdasdasdasd"));
         }
     }
 }

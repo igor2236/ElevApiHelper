@@ -73,7 +73,7 @@ namespace ElevApiHelper.Util
         /// <param name="endpoint"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public static async Task<Wrapper<T>> GetAsyncExtessinonSingleParameter<T>(this HttpClient httpClient, string endpoint,string parameter) where T : class
+        public static async Task<Wrapper<T>> GetAsyncExtessinonSingleParameter<T>(this HttpClient httpClient, string endpoint, string parameter) where T : class
         {
             try
             {
@@ -82,14 +82,22 @@ namespace ElevApiHelper.Util
                 Byte[]? json = await response.Content.ReadAsByteArrayAsync();
                 string jonsonString = Encoding.UTF8.GetString(json);
 
-                if (response.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(jonsonString))
+
+                if (string.IsNullOrWhiteSpace(jonsonString))
+                {
+                    ErrorResponse error = new ErrorResponse(null, response.StatusCode);
+                    return new Wrapper<T>(error);
+                }
+
+
+                if (response.IsSuccessStatusCode)
                 {
                     T jsonResponse = JsonSerializer.Deserialize<T>(jonsonString)!;
                     return new Wrapper<T>(jsonResponse);
                 }
                 else
                 {
-                    string error = "Erro";
+                    ErrorResponse error = new ErrorResponse(jonsonString, response.StatusCode);
                     return new Wrapper<T>(error);
                 }
             }
