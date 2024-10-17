@@ -105,8 +105,6 @@ namespace ElevApiHelper.Util
             {
                 throw;
             }
-
-
         }
 
     }

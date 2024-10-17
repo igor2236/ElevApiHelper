@@ -1,15 +1,9 @@
 ﻿using AJP;
-using ElevApiHelper.Util.ErrorModels;
-using System;
-using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Runtime.Serialization;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Xml.Linq;
 
 namespace ElevApiHelper.Util
 {
@@ -41,24 +35,31 @@ namespace ElevApiHelper.Util
                 return;
             }
 
-            errorJson = "{\r\n  \"error\": {\r\n    \"code\": 403,\r\n    \"message\": \"O ramal não está vinculado a nenhuma fila.\"\r\n  }\r\n}";
-            JsonElement errorJsonElement = JsonSerializer.Deserialize<JsonElement>(JsonDocument.Parse(errorJson));
-            Message = GetErrorMessage(errorJsonElement);
+            JObject errorJsonElement = JObject.Parse(errorJson);
+            Message = GetErrorMessage(errorJsonElement, "");
         }
 
-        private string GetErrorMessage(JsonElement errorJsonElement)
+        private string GetErrorMessage(JObject errorJsonElement, string message)
         {
-            if (errorJsonElement.TryGetProperty("message", out var message))
+            try
             {
-                return message.ToString();
+                if (errorJsonElement.Children().Count() > 0)
+                {
+                    foreach (JProperty child in errorJsonElement.Children())
+                    {
+                        if (child.Children().Children().Count() > 0 )
+                            message = GetErrorMessage(JObject.Parse(child.Value.ToString()), message);
+                        else
+                            if(child.Name == "message" && string.IsNullOrWhiteSpace(null))
+                            message = child.Value.ToString();
+                    }
+                } 
             }
-            else
+            catch (System.Exception)
             {
-                //TODO Ver isso aqui
-                var aaa = errorJsonElement.GetProperties();
-                GetErrorMessage(JsonSerializer.Deserialize<JsonElement>(JsonDocument.Parse(errorJsonElement.GetProperties().ToString())));
-                return errorJsonElement.ToString();
+                throw;
             }
+            return message;
         }
     }
 }
