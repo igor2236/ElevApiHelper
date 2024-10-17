@@ -13,6 +13,8 @@ using System.Runtime.CompilerServices;
 using ElevApiHelper.Models.CentroDeCusto;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using ElevApiHelper.Models.ControDeCusto;
+using Newtonsoft.Json;
 
 namespace ElevApiHelper.Services
 {
@@ -37,7 +39,7 @@ namespace ElevApiHelper.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<Wrapper<GetCentroDeCustoByIdResponse>> GetCentroDeCustoById(int id)
         {
-             Wrapper <GetCentroDeCustoByIdResponse> response;
+            Wrapper <GetCentroDeCustoByIdResponse> response;
             try
             {
                 response = await _httpClient.GetAsyncExtessinonSingleParameter<GetCentroDeCustoByIdResponse>(Endpoints.CentroDeCusto, id.ToString());
@@ -60,7 +62,7 @@ namespace ElevApiHelper.Services
         /// <param name="centroDeCusto"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PutCentroDeCusto(int id, CentroDeCustoRequest centroDeCusto)
+        public object PutCentroDeCusto(int id, PostCentroDeCustoRequest centroDeCusto)
         {
             throw new NotImplementedException();
         }
@@ -82,22 +84,27 @@ namespace ElevApiHelper.Services
         //GET
         //centro-custo
         //Pesquisa de centro de custo
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="page">Pagina atual; Default value : 1</param>
-        /// <param name="rows">Quantidade de registros por pagina; Default value : 5</param>
-        /// <param name="sort_by">Ordenar por um campo especifico</param>
-        /// <param name="order_by">Tipo de ordem (asc ou desc)</param>
-        /// <param name="ativo">Filtro por ativo; Default value : true</param>
-        /// <param name="nome">Filtro por nome</param>
-        /// <param name="codigo">Filtro por codigo</param>
-        /// <param name="fk_ramal">Filtro por fk_ramal</param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public object GetCentrosDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null)
+     /// <summary>
+     /// 
+     /// </summary>
+     /// <param name="getCentroDeCustoParams"></param>
+     /// <returns></returns>
+        public async Task<Wrapper<GetCentroDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams)
         {
-            throw new NotImplementedException();
+            Wrapper<GetCentroDeCustoResponse> response;
+            try
+            {
+                string? json = string.IsNullOrEmpty(JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented))
+                    ?  
+                JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented);
+
+                response = await _httpClient.GetAsyncExtessinonMultParameters<GetCentroDeCustoResponse>(Endpoints.CentroDeCusto, JsonConvert.DeserializeObject<Dictionary<string,object>>(getCentroDeCustoParams));
+                return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         //POST
@@ -109,7 +116,7 @@ namespace ElevApiHelper.Services
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public object PostCentroDeCusto(CentroDeCustoRequest centroDeCustoRequestBody)
+        public object PostCentroDeCusto(PostCentroDeCustoRequest centroDeCustoRequestBody)
         {
             throw new NotImplementedException();
         }

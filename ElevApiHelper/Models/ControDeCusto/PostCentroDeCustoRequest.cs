@@ -5,7 +5,7 @@ namespace ElevApiHelper.Models.CentroDeCusto
     /// <summary>
     /// 
     /// </summary>
-    public class CentroDeCustoRequest
+    public class PostCentroDeCustoRequest
     {
         /// <summary>
         /// 

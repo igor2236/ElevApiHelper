@@ -1,4 +1,5 @@
 ﻿using ElevApiHelper.Models.CentroDeCusto;
+using ElevApiHelper.Models.ControDeCusto;
 using ElevApiHelper.Util;
 using System;
 using System.IO;
@@ -24,31 +25,26 @@ namespace ElevApiHelper.Interfaces
         /// <param name="id"></param>
         /// <param name="centroDeCusto"></param>
         /// <returns></returns>
-        object PutCentroDeCusto(int id, CentroDeCustoRequest centroDeCusto);
+        object PutCentroDeCusto(int id, PostCentroDeCustoRequest centroDeCusto);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         object DeleteCentroDeCusto(int id);
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="page"></param>
-        /// <param name="rows"></param>
-        /// <param name="sort_by"></param>
-        /// <param name="order_by"></param>
-        /// <param name="ativo"></param>
-        /// <param name="nome"></param>
-        /// <param name="codigo"></param>
-        /// <param name="fk_ramal"></param>
+        /// <param name="getCentroDeCustoParams"></param>
         /// <returns></returns>
-        object GetCentrosDeCusto(int? page = 1, int? rows = 5, string? sort_by = null, string? order_by = null, bool ativo = true, string? nome = null, int? codigo = null, int? fk_ramal = null);
+        Task<Wrapper<GetCentroDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams);
+        
         /// <summary>
         /// 
         /// </summary>
         /// <param name="centroDeCustoRequestBody"></param>
         /// <returns></returns>
-        object PostCentroDeCusto(CentroDeCustoRequest centroDeCustoRequestBody);
+        object PostCentroDeCusto(PostCentroDeCustoRequest centroDeCustoRequestBody);
     }
 }

@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Nodes;
 using System.Xml;
+using ElevApiTest.Util;
 
 namespace ElevApiTest
 {
@@ -20,80 +21,43 @@ namespace ElevApiTest
         [SetUp]
         public void CentroDeCustoSetUp()
         {
-            IConfigurationBuilder configuration = new ConfigurationBuilder().AddJsonFile("C:\\ElevApiHelper\\ElevApiTest\\appsettings.json");
-            IConfigurationRoot? configurationRoot = configuration.Build();
-
-            ElevConfig? config = GetElevConfig(configurationRoot);
+            ElevConfig? config = ElevConfigHelper.GetElevConfig();
             elevApiHelper = new ElevApiHelper.ElevApiHelper(config);
             centroDeCustoServce = elevApiHelper.CreateCentroDeCustoService();
         }
 
-        private ElevConfig GetElevConfig(IConfigurationRoot configurationRoot)
-        {
-            string uriString = !string.IsNullOrWhiteSpace(configurationRoot.GetValue<string?>("ElevAcsses:BaseAddres")) ?
-            configurationRoot.GetValue<string>("ElevAcsses:BaseAddres")! :
-            "";
-
-            string apiKeyStirng = !string.IsNullOrWhiteSpace(configurationRoot.GetValue<string?>("ElevAcsses:Userstring")) ?
-            configurationRoot.GetValue<string>("ElevAcsses:Userstring")! :
-            "";
-
-            ElevConfig config = new ElevConfig()
-            {
-                Uri = new Uri(uriString),
-                ApiKey = apiKeyStirng
-            };
-            return config;
-        }
-
-
-        [Test(Description = "Assert that result is not NULL")]
+        #region GetCentroDeCustoById
+        #endregion
+        [Test(Description = "Assert that result is Success")]
         [Category("Param: 1")]
-        public async Task AssertTypeOfCentroDeCustoIsNotNull()
+        public async Task AssertCentroDeCustoIsSuccess()
         {
             Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(1);
             Assert.That(result.Result, Is.Not.Null);
-        }
-
-        [Test(Description = "Assert that result is successful")]
-        [Category("Param: 1")]
-        public async Task AssertTypeOfCentroDeCustoIsSuccess()
-        {
-            Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(1);
+            Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentroDeCustoByIdResponse)));
             Assert.That(result.success, Is.True);
-        }
-
-        [Test(Description = "Assert that result has no error object in wrapper")]
-        [Category("Param: 1")]
-        public async Task AssertTypeOfCentroDeCustoHasNoErrorInWarapper()
-        {
-            Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(1);
             Assert.That(result.Error, Is.Null);
         }
 
-
-        [Test(Description = "Assert that result is not successful")]
+        [Test(Description = "Assert that result has correct error object")]
         [Category("param: 2147483647")]
-        public async Task AssertTypeOfCentroDeCustoIsNotSuccess()
+        public async Task AssertCentroDeCustoReturnsErrorObject()
         {
             Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(2147483647);
             Assert.That(result.success, Is.False);
-        }
-
-
-        [Test(Description = "Assert that result has error description")]
-        [Category("param: 2147483647")]
-        public async Task AssertTypeOfCentroDeCustoHasErrorDescription()
-        {
-            Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(2147483647);
+            Assert.That(result.Error!.GetType(), Is.EqualTo(typeof(ErrorResponse)));
             Assert.That(result.Error!.Message, Is.EqualTo("Centro de custo não encontrado"));
+            Assert.That(result.Error!.HttpStatus, Is.EqualTo(HttpStatusCode.NotFound));
         }
 
-        [Test(Description = "Assert that result has error HttpStatusCode")]
-        [Category("param: 2147483647")]
-        public async Task AssertTypeOfCentroDeCustoHasErroHttpStatusCode()
+        [Test(Description = "Assert that result has error object with corretc null return pattern")]
+        [Category("param: -1")]
+        public async Task AssertCentroDeCustoRetunsNothingInErrorObject()
         {
-            Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(2147483647);
+            Wrapper<GetCentroDeCustoByIdResponse> result = await centroDeCustoServce.GetCentroDeCustoById(-1);
+            Assert.That(result.success, Is.False);
+            Assert.That(result.Error!.GetType(), Is.EqualTo(typeof(ErrorResponse)));
+            Assert.That(result.Error!.Message, Is.EqualTo("Nothing was returned by api."));
             Assert.That(result.Error!.HttpStatus, Is.EqualTo(HttpStatusCode.NotFound));
         }
     }
