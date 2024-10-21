@@ -39,9 +39,32 @@ namespace ElevApiHelper.Models.ControDeCusto
         public string? OrderBy { get; set; }
 
         //bool ativo
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonPropertyName("ativo")]
+        public bool? Ativo { get; set; } = true;
+
         //string? nome
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonPropertyName("nome")]
+        public string? Nome { get; set; }
+
         //int? codigo
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonPropertyName("codigo")]
+        public int? Codigo { get; set; }
+
         //int? fk_ramal
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonPropertyName("fk_ramal")]
+        public int? FkRamal { get; set; }
 
     }
 }

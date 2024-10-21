@@ -15,6 +15,9 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using ElevApiHelper.Models.ControDeCusto;
 using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using AJP;
+using System.Reflection;
 
 namespace ElevApiHelper.Services
 {
@@ -37,12 +40,12 @@ namespace ElevApiHelper.Services
         /// <param name="id">ID do centro de custo</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<Wrapper<GetCentroDeCustoByIdResponse>> GetCentroDeCustoById(int id)
+        public async Task<Wrapper<CentroDeCustoResponse>> GetCentroDeCustoById(int id)
         {
-            Wrapper <GetCentroDeCustoByIdResponse> response;
+            Wrapper<CentroDeCustoResponse> response;
             try
             {
-                response = await _httpClient.GetAsyncExtessinonSingleParameter<GetCentroDeCustoByIdResponse>(Endpoints.CentroDeCusto, id.ToString());
+                response = await _httpClient.GetAsyncExtessinonSingleParameter<CentroDeCustoResponse>(Endpoints.CentroDeCusto, id.ToString());
 
                 return response;
             }
@@ -84,21 +87,35 @@ namespace ElevApiHelper.Services
         //GET
         //centro-custo
         //Pesquisa de centro de custo
-     /// <summary>
-     /// 
-     /// </summary>
-     /// <param name="getCentroDeCustoParams"></param>
-     /// <returns></returns>
-        public async Task<Wrapper<GetCentroDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="getCentroDeCustoParams"></param>
+        /// <returns></returns>
+        public async Task<Wrapper<GetCentrosDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams)
         {
-            Wrapper<GetCentroDeCustoResponse> response;
+            Wrapper<GetCentrosDeCustoResponse> response;
             try
             {
-                string? json = string.IsNullOrEmpty(JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented))
-                    ?  
-                JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented);
+                //TODO: Pegar o JsonPropertyName
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                foreach (var property in getCentroDeCustoParams.GetProperties())
+                {
+                    var jsonPropertyNameAttribute = getCentroDeCustoParams.GetType().GetCustomAttribute<JsonPropertyNameAttribute>().Name;
+                    parameters.Add(jsonPropertyNameAttribute, property.Value);
+                }
 
-                response = await _httpClient.GetAsyncExtessinonMultParameters<GetCentroDeCustoResponse>(Endpoints.CentroDeCusto, JsonConvert.DeserializeObject<Dictionary<string,object>>(getCentroDeCustoParams));
+
+
+
+                string json = JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented);
+                //Dictionary<string, object>? parameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+
+                //string json = string.IsNullOrEmpty(JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented))
+                //? "" 
+                //: JsonConvert.SerializeObject(getCentroDeCustoParams, Formatting.Indented);
+
+                response = await _httpClient.GetAsyncExtessinonMultParameters<GetCentrosDeCustoResponse>(Endpoints.CentroDeCusto,parameters);
                 return response;
             }
             catch (Exception)

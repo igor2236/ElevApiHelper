@@ -28,34 +28,42 @@ namespace ElevApiHelper.Util
         /// <param name="endpoint"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static async Task<T> GetAsyncExtessinonMultParameters<T>(this HttpClient httpClient, string endpoint, Dictionary<string, object> parameters) where T : class
+        public static async Task<Wrapper<T>> GetAsyncExtessinonMultParameters<T>(this HttpClient httpClient, string endpoint, Dictionary<string, object>? parameters) where T : class
         {
             try
             {
-                List<string> parametersList = new List<string>();
-                foreach (var parameter in parameters)
+                string parametersString = "";
+                if (parameters != null && parameters.Count > 0)
                 {
-                    parametersList.Add($"{parameter.Value}");
+                    List<string> parametersList = new List<string>();
+                    foreach (var parameter in parameters)
+                    {
+                        parametersList.Add($"{parameter.Key}={parameter.Value}");
+                    }
+                    parametersString = string.Join('&', parametersList);
                 }
 
-                string parametersString = string.Join('&', parametersList);
-
-                Uri uri = new Uri($"{httpClient.BaseAddress}{endpoint}/{parametersString}");
+                Uri uri = new Uri($"{httpClient.BaseAddress}{endpoint}?{parametersString}");
                 using HttpResponseMessage response = await httpClient.GetAsync(uri);
-                string? json = await response.Content.ReadAsStringAsync();
+                Byte[]? json = await response.Content.ReadAsByteArrayAsync();
+                string jsonString = Encoding.UTF8.GetString(json);
+                
 
-                if (response.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(json))
+                if (string.IsNullOrWhiteSpace(jsonString))
                 {
-                    T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
-                    //T jsonResponse = JsonSerializer.Deserialize<T>(json) != null ?
-                    //JsonSerializer.Deserialize<T>(json)! :
-                    //jsonResponse;
-                    return jsonResponse;
+                    ErrorResponse error = new ErrorResponse(null, response.StatusCode);
+                    return new Wrapper<T>(error);
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    T jsonResponse = JsonSerializer.Deserialize<T>(jsonString)!;
+                    return new Wrapper<T>(jsonResponse);
                 }
                 else
                 {
-                    T jsonResponse = JsonSerializer.Deserialize<T>(json)!;
-                    return jsonResponse;
+                    ErrorResponse error = new ErrorResponse(jsonString, response.StatusCode);
+                    return new Wrapper<T>(error);
                 }
             }
             catch (Exception)
@@ -80,10 +88,10 @@ namespace ElevApiHelper.Util
                 Uri uri = new Uri($"{httpClient.BaseAddress}{endpoint}/{parameter}");
                 using HttpResponseMessage response = await httpClient.GetAsync(uri);
                 Byte[]? json = await response.Content.ReadAsByteArrayAsync();
-                string jonsonString = Encoding.UTF8.GetString(json);
+                string jsonString = Encoding.UTF8.GetString(json);
 
 
-                if (string.IsNullOrWhiteSpace(jonsonString))
+                if (string.IsNullOrWhiteSpace(jsonString))
                 {
                     ErrorResponse error = new ErrorResponse(null, response.StatusCode);
                     return new Wrapper<T>(error);
@@ -92,12 +100,12 @@ namespace ElevApiHelper.Util
 
                 if (response.IsSuccessStatusCode)
                 {
-                    T jsonResponse = JsonSerializer.Deserialize<T>(jonsonString)!;
+                    T jsonResponse = JsonSerializer.Deserialize<T>(jsonString)!;
                     return new Wrapper<T>(jsonResponse);
                 }
                 else
                 {
-                    ErrorResponse error = new ErrorResponse(jonsonString, response.StatusCode);
+                    ErrorResponse error = new ErrorResponse(jsonString, response.StatusCode);
                     return new Wrapper<T>(error);
                 }
             }

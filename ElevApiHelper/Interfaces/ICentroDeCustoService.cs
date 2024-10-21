@@ -18,7 +18,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<Wrapper<GetCentroDeCustoByIdResponse>> GetCentroDeCustoById(int id);
+        Task<Wrapper<CentroDeCustoResponse>> GetCentroDeCustoById(int id);
         /// <summary>
         /// 
         /// </summary>
@@ -26,6 +26,7 @@ namespace ElevApiHelper.Interfaces
         /// <param name="centroDeCusto"></param>
         /// <returns></returns>
         object PutCentroDeCusto(int id, PostCentroDeCustoRequest centroDeCusto);
+        
         /// <summary>
         /// 
         /// </summary>
@@ -38,7 +39,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="getCentroDeCustoParams"></param>
         /// <returns></returns>
-        Task<Wrapper<GetCentroDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams);
+        Task<Wrapper<GetCentrosDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams);
         
         /// <summary>
         /// 
