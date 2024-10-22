@@ -1,4 +1,5 @@
 ﻿using ElevApiHelper.Models.CentroDeCusto;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,19 +14,20 @@ namespace ElevApiHelper.Models.ControDeCusto
     {/// <summary>
      /// 
      /// </summary>
-        [JsonPropertyName("params")]
-        public GetCentroDeCustoParams? GetCentroDeCustoParams { get; set; }
+        [JsonProperty("params")]
+        public GetCentrosDeCustoParams? GetCentroDeCustoParams { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("data")]
+        [JsonProperty("data")]
         public List<CentroDeCustoResponse>? Data { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("pagination")]
+        [JsonProperty("pagination")]
         public CentroDeCustoPagination? CentroDeCustoPagination { get; set; }
     }
+
 }

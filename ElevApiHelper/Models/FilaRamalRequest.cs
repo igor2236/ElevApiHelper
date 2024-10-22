@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
@@ -15,17 +16,17 @@ namespace ElevApiHelper.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("fk_fila")]
+        [JsonProperty("fk_fila")]
         public int FkFila { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("fk_ramal")]
+        [JsonProperty("fk_ramal")]
         public int FkRamal { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("acao")]
+        [JsonProperty("acao")]
         public string? Acao { get; set; }
     }
 }

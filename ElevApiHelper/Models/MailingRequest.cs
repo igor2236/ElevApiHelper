@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ElevApiHelper.Models
 {
@@ -10,31 +11,31 @@ namespace ElevApiHelper.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("campanha")]
+        [JsonProperty("campanha")]
         public string? Campanha { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("nome")]
+        [JsonProperty("nome")]
         public string? Nome { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("telefone")]
+        [JsonProperty("telefone")]
         public string? Telefone { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("identificador")]
+        [JsonProperty("identificador")]
         public string? Identificador { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("inclusao_exclusao")]
+        [JsonProperty("inclusao_exclusao")]
         public string? InclusaoExclusao { get; set; }
     }
 }

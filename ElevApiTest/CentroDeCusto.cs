@@ -11,6 +11,7 @@ using System.Text.Json.Nodes;
 using System.Xml;
 using ElevApiTest.Util;
 using ElevApiHelper.Models.ControDeCusto;
+using ElevApiTest.Util.CentroDeCusto;
 
 namespace ElevApiTest
 {
@@ -68,15 +69,24 @@ namespace ElevApiTest
         [Category("Param: 1")]
         public async Task AssertGetCentrosDeCustoIsSuccess()
         {
-            GetCentroDeCustoParams getCentroDeCustoParams = new GetCentroDeCustoParams();
-            getCentroDeCustoParams.Page = 1;
-            getCentroDeCustoParams.Rows = 5;
-            getCentroDeCustoParams.Ativo = true;
-
+            GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelPageZero();
 
             Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
             Assert.That(result.Result, Is.Not.Null);
-            Assert.That(result.Result.GetType(), Is.EqualTo(typeof(CentroDeCustoResponse)));
+            Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
+            Assert.That(result.success, Is.True);
+            Assert.That(result.Error, Is.Null);
+        }
+
+        [Test(Description = "Assert that result has correct error object")]
+        [Category("Param: 1")]
+        public async Task AssertGetCentrosDeCustoReturnsErrorObject()
+        {
+            GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelPageZero();
+
+            Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
+            Assert.That(result.Result, Is.Not.Null);
+            Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
             Assert.That(result.success, Is.True);
             Assert.That(result.Error, Is.Null);
         }

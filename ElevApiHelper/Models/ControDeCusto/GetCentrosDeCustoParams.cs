@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ElevApiHelper.Enums;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -8,62 +10,62 @@ namespace ElevApiHelper.Models.ControDeCusto
     /// <summary>
     /// 
     /// </summary>
-    public class GetCentroDeCustoParams
+    public class GetCentrosDeCustoParams
     {
         //int? page
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("page")]
+        [JsonProperty("page")]
         public int? Page { get; set; }
 
         //int? rows
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("rows")]
+        [JsonProperty("rows")]
         public int? Rows { get; set; }
 
         //string? sort_by
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("sort_by")]
+        [JsonProperty("sort_by")]
         public string? SortBy { get; set; }
 
         //string? order_by
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("order_by")]
+        [JsonProperty("order_by")]
         public string? OrderBy { get; set; }
 
         //bool ativo
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("ativo")]
+        [JsonProperty("ativo")]
         public bool? Ativo { get; set; } = true;
 
         //string? nome
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("nome")]
+        [JsonProperty("nome")]
         public string? Nome { get; set; }
 
         //int? codigo
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("codigo")]
+        [JsonProperty("codigo")]
         public int? Codigo { get; set; }
 
         //int? fk_ramal
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("fk_ramal")]
+        [JsonProperty("fk_ramal")]
         public int? FkRamal { get; set; }
 
     }

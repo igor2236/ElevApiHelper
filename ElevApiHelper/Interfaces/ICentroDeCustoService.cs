@@ -39,7 +39,7 @@ namespace ElevApiHelper.Interfaces
         /// </summary>
         /// <param name="getCentroDeCustoParams"></param>
         /// <returns></returns>
-        Task<Wrapper<GetCentrosDeCustoResponse>> GetCentrosDeCusto(GetCentroDeCustoParams getCentroDeCustoParams);
+        Task<Wrapper<GetCentrosDeCustoResponse>> GetCentrosDeCusto(GetCentrosDeCustoParams getCentroDeCustoParams);
         
         /// <summary>
         /// 

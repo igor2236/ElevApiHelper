@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
 namespace ElevApiHelper.Models
@@ -11,42 +12,42 @@ namespace ElevApiHelper.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("host")]
+        [JsonProperty("host")]
          public string? Host {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("user")]
+        [JsonProperty("user")]
         public string? User {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("secret")]
+        [JsonProperty("secret")]
         public string? Secret {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("port")]
+        [JsonProperty("port")]
         public int Port {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("board")]
+        [JsonProperty("board")]
         public int Board {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("channel")]
+        [JsonProperty("channel")]
         public int Channel {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("number")]
+        [JsonProperty("number")]
         public string? Number {get; set;}
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("message")]
+        [JsonProperty("message")]
         public string? Message { get; set; }
     }
 }

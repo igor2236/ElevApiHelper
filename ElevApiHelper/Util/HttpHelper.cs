@@ -1,18 +1,9 @@
-﻿using ElevApiHelper.Models.CentroDeCusto;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Data;
-using System.Data.Common;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace ElevApiHelper.Util
 {
@@ -57,7 +48,7 @@ namespace ElevApiHelper.Util
 
                 if (response.IsSuccessStatusCode)
                 {
-                    T jsonResponse = JsonSerializer.Deserialize<T>(jsonString)!;
+                    T jsonResponse = JsonConvert.DeserializeObject<T>(jsonString)!;
                     return new Wrapper<T>(jsonResponse);
                 }
                 else
@@ -100,7 +91,7 @@ namespace ElevApiHelper.Util
 
                 if (response.IsSuccessStatusCode)
                 {
-                    T jsonResponse = JsonSerializer.Deserialize<T>(jsonString)!;
+                    T jsonResponse = JsonConvert.DeserializeObject<T>(jsonString)!;
                     return new Wrapper<T>(jsonResponse);
                 }
                 else

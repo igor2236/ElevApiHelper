@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.Serialization;
@@ -15,25 +16,25 @@ namespace ElevApiHelper.Models.ControDeCusto
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("page")]
+        [JsonProperty("page")]
         public int Page {  get; set; }
         
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("rows")]
+        [JsonProperty("rows")]
         public int Rows { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("totalRows")]
+        [JsonProperty("totalRows")]
         public int TotalRows { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("totalPages")]
+        [JsonProperty("totalPages")]
         public int TotalPages { get; set; }
 
     }

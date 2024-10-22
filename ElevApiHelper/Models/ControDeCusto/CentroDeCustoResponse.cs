@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ElevApiHelper.Models.CentroDeCusto
 {
@@ -10,31 +11,31 @@ namespace ElevApiHelper.Models.CentroDeCusto
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public int? Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("nome")]
+        [JsonProperty("nome")]
         public string? Nome { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("quant_ramais")]
+        [JsonProperty("quant_ramais")]
         public int? QuantRamais {  get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("codigo")]
+        [JsonProperty("codigo")]
         public int? Codigo { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("ativo")]
+        [JsonProperty("ativo")]
         public string? Ativo { get; set; }
     }
 }

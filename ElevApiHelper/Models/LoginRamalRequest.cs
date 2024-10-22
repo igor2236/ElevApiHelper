@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ElevApiHelper.Models
 {
@@ -10,17 +11,17 @@ namespace ElevApiHelper.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("ramal")]
+        [JsonProperty("ramal")]
         public string? Ramal { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("posicao")]
+        [JsonProperty("posicao")]
         public int Posicao { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("senhaRamal")]
+        [JsonProperty("senhaRamal")]
         public string? SenhaRamal { get; set; }
     }
 }
