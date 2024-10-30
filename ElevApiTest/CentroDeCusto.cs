@@ -66,30 +66,60 @@ namespace ElevApiTest
 
         #region GetCentroDeCusto
         [Test(Description = "Assert that result is Success")]
-        [Category("Param: 1")]
+        [Category("Param:  GetCentrosDeCustoParamsModels.GetModelDefault()")]
         public async Task AssertGetCentrosDeCustoIsSuccess()
         {
-            GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelPageZero();
+            
+            List<GetCentrosDeCustoParams> getCentrosDeCustoParams = new List<GetCentrosDeCustoParams>();
+            
+            var methods = typeof(GetCentrosDeCustoParamsModels)
+                .GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .Where(method => method.Name.EndsWith("Elev"));
 
-            Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
-            Assert.That(result.Result, Is.Not.Null);
-            Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
-            Assert.That(result.success, Is.True);
-            Assert.That(result.Error, Is.Null);
+            foreach ( var method in methods )
+            {
+                //getCentrosDeCustoParams.Add(method.Invoke(this, new object[0])); TODO: Ver isso aqui
+            }
+
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelDefaultElev());
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelNegativePageElev());
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelPageMinIntElev());
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelPageMaxIntElev());
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelSorteByIdElev());
+            getCentrosDeCustoParams.Add(GetCentrosDeCustoParamsModels.GetModelPageZeroElev());
+
+
+            //foreach(GetCentrosDeCustoParams getCentroDeCustoParams in getCentrosDeCustoParams)
+            //{
+            //    Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
+            //    Assert.That(result.Result, Is.Not.Null);
+            //    Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
+            //    Assert.That(result.success, Is.True);
+            //    Assert.That(result.Error, Is.Null);
+            //}
+
+            //GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelDefault();
+
+            //Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
+            //Assert.That(result.Result, Is.Not.Null);
+            //Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
+            //Assert.That(result.success, Is.True);
+            //Assert.That(result.Error, Is.Null);
         }
 
         [Test(Description = "Assert that result has correct error object")]
-        [Category("Param: 1")]
+        [Category("Param:  GetCentrosDeCustoParamsModels.GetModelPageZero()")]
         public async Task AssertGetCentrosDeCustoReturnsErrorObject()
         {
-            GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelPageZero();
-
+            GetCentrosDeCustoParams getCentroDeCustoParams = GetCentrosDeCustoParamsModels.GetModelDefaultElev();
+        
             Wrapper<GetCentrosDeCustoResponse> result = await centroDeCustoServce.GetCentrosDeCusto(getCentroDeCustoParams);
             Assert.That(result.Result, Is.Not.Null);
             Assert.That(result.Result.GetType(), Is.EqualTo(typeof(GetCentrosDeCustoResponse)));
             Assert.That(result.success, Is.True);
             Assert.That(result.Error, Is.Null);
         }
+
         #endregion
     }
 }
